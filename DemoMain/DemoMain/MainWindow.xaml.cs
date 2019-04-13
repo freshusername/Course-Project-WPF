@@ -45,8 +45,51 @@ namespace DemoMain
         private void ItemOpenGithub_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)
         {
             string url = @"http://www.github.com";
-            var startInfo = new ProcessStartInfo("explorer.exe", url);
+            var startInfo = new ProcessStartInfo("chrome.exe", url);
             Process.Start(startInfo);
+        }
+
+        //private void ListViewMenu_PreviewMouseLeftButtonUp(object sender, MouseButtonEventArgs e)
+        //{
+        //    var item = sender as ListViewItem;
+        //    if (item != null && item.IsSelected)
+        //    {
+        //        //Do your stuff
+        //        MainFrame.Content = new VehiclesPage();
+        //    }
+        //}
+
+        //private void ListViewMenu_PreviewMouseLeftButtonUp_1(object sender, MouseButtonEventArgs e)
+        //{
+        //    var item = sender as ListViewItem;
+        //    if (item != null && item.IsSelected)
+        //    {
+        //        //Do your stuff
+        //        MainFrame.Content = new VehiclesPage();
+        //    }
+        //}
+
+        private void ItemVehicles_PreviewMouseLeftButtonUp(object sender, MouseButtonEventArgs e)
+        {
+            MainFrame.Content = new VehiclesPage();
+        }
+
+        private void ItemHome_PreviewMouseLeftButtonUp(object sender, MouseButtonEventArgs e)
+        {
+            MainFrame.Content = new HomePage();
+
+        }
+
+        private void ItemDillers_PreviewMouseLeftButtonUp(object sender, MouseButtonEventArgs e)
+        {
+            MainFrame.Content = new DillersPage();
+
+        }
+
+        private void ItemCallUs_PreviewMouseLeftButtonUp(object sender, MouseButtonEventArgs e)
+        {
+            MainFrame.Content = new CallUsPage();
+
         }
     }
 }

@@ -6,7 +6,7 @@
         xmlns:local="clr-namespace:DemoMain"
         xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
         mc:Ignorable="d"
-        Title="CarShopDemo" Height="450" Width="800" ResizeMode="NoResize" WindowStartupLocation="CenterScreen" WindowStyle="None">
+        Title="CarShopDemo" Height="450" Width="800" ResizeMode="CanResizeWithGrip" WindowStartupLocation="CenterScreen" SizeToContent="WidthAndHeight" MinHeight="500" MinWidth="850">
     
     <Window.Resources>
         <Storyboard x:Key="OpenMenu">
@@ -32,9 +32,11 @@
         </EventTrigger>
     </Window.Triggers>
     
-    <Grid Background="#FFDEDEDE">
+  
+    <Grid Background="#FFDEDEDE" MinWidth="800" MinHeight="450" AllowDrop="True">
         <Grid x:Name="GridMain" HorizontalAlignment="Right" VerticalAlignment="Bottom" Height="540" Width="1010"/>
-        <!--#region Header-->
+      <Frame x:Name="MainFrame" Margin="70, 70, 0, 0" MinWidth="430" MinHeight="380"/>  
+      <!--#region Header-->
             <Grid Height="60" VerticalAlignment="Top" Background="#FF5C99D6">
             <Grid.Effect>
                 <DropShadowEffect BlurRadius="1" ShadowDepth="1" Color="#FFACACAC"/>
@@ -82,26 +84,35 @@
                 </Grid>
                 
                 <!--#region ListViewLeftButtons-->
-                <ListView x:Name="ListViewMenu" Foreground="#FF5C99D6" ScrollViewer.HorizontalScrollBarVisibility="Disabled" >
-                    <ListViewItem x:Name="ItemHome" Height="60">
+                <ListView  x:Name="ListViewMenu" Foreground="#FF5C99D6" ScrollViewer.HorizontalScrollBarVisibility="Disabled"  >
+                 
+                  <!--<ListView.ItemContainerStyle>
+                    <Style TargetType="ListViewItem">
+                      <EventSetter Event="PreviewMouseLeftButtonDown"  />
+                    </Style>
+                  </ListView.ItemContainerStyle>-->  
+                  
+                  
+                  <ListViewItem x:Name="ItemHome" Height="60" PreviewMouseLeftButtonUp="ItemHome_PreviewMouseLeftButtonUp" >
                         <StackPanel Orientation="Horizontal">
                             <materialDesign:PackIcon Kind="ViewDashboard" Height="25" Width="25" Margin="10"/>
                             <TextBlock Text="Home" VerticalAlignment="Center" Margin="20 10"/>
                         </StackPanel>
                     </ListViewItem>
-                    <ListViewItem x:Name="ItemVehicles" Height="60">
+                  
+                    <ListViewItem x:Name="ItemVehicles" Height="60" PreviewMouseLeftButtonUp="ItemVehicles_PreviewMouseLeftButtonUp" >
                         <StackPanel Orientation="Horizontal">
                             <materialDesign:PackIcon Kind="Car" Height="25" Width="25" Margin="10"/>
                             <TextBlock Text="Vehicles" VerticalAlignment="Center" Margin="20 10"/>
                         </StackPanel>
                     </ListViewItem>
-                    <ListViewItem x:Name="ItemDillers"  Height="60">
+                    <ListViewItem x:Name="ItemDillers"  Height="60" PreviewMouseLeftButtonUp="ItemDillers_PreviewMouseLeftButtonUp">
                         <StackPanel Orientation="Horizontal">
                             <materialDesign:PackIcon Kind="Shop" Height="25" Width="25" Margin="10"/>
                             <TextBlock Text="Dillers" VerticalAlignment="Center"  Margin="20 10"/>
                         </StackPanel>
                     </ListViewItem>
-                    <ListViewItem x:Name="ItemCallUs" Height="60">
+                    <ListViewItem x:Name="ItemCallUs" Height="60" PreviewMouseLeftButtonUp="ItemCallUs_PreviewMouseLeftButtonUp">
                         <StackPanel Orientation="Horizontal">
                             <materialDesign:PackIcon Kind="Call" Height="25" Width="25" Margin="10"/>
                             <TextBlock Text="Call us" VerticalAlignment="Center"  Margin="20 10"/>
