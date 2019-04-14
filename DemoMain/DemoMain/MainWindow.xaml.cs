@@ -13,9 +13,13 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 using System.Diagnostics;
+//using DemoMain.InitializeDB;
+//using InitializeDB;
 
 namespace DemoMain
 {
+    
+    
     /// <summary>
     /// Логика взаимодействия для MainWindow.xaml
     /// </summary>
@@ -23,6 +27,14 @@ namespace DemoMain
     {
         public MainWindow()
         {
+            //MainFrame.Content = new LoginPage();
+            //MainFrame.Content = new LogButtonPage();
+            //InitializeDBCars dbCars = new InitializeDBCars();
+            //dbCars.Initialize();
+            //MessageBox.Show(dbCars.OKstr);
+            //InitializeDBUsers dbUsers = new InitializeDBUsers();
+            //dbUsers.Initialize();
+            //MessageBox.Show(dbUsers.OKstr);
             InitializeComponent();
         }
 
@@ -90,6 +102,11 @@ namespace DemoMain
         {
             MainFrame.Content = new CallUsPage();
 
+        }
+
+        private void BtnLogin_Click(object sender, RoutedEventArgs e)
+        {
+            MainFrame.Content = new LogButtonPage();
         }
     }
 }

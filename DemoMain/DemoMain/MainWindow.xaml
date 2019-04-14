@@ -34,22 +34,26 @@
     
   
     <Grid Background="#FFDEDEDE" MinWidth="800" MinHeight="450" AllowDrop="True">
+        <!--#region MainCenterStackPanel-->
+        
+        <!--#endregion-->
         <Grid x:Name="GridMain" HorizontalAlignment="Right" VerticalAlignment="Bottom" Height="540" Width="1010"/>
-      <Frame x:Name="MainFrame" Margin="70, 70, 0, 0" MinWidth="430" MinHeight="380"/>  
-      <!--#region Header-->
+        <Frame x:Name="MainFrame" Margin="70, 70, 0, 0" MinWidth="430" MinHeight="380"/>
+        <!--#region Header-->
             <Grid Height="60" VerticalAlignment="Top" Background="#FF5C99D6">
             <Grid.Effect>
                 <DropShadowEffect BlurRadius="1" ShadowDepth="1" Color="#FFACACAC"/>
             </Grid.Effect>
             <!--#region RigthTopContextMenuWithPopup-->
             <StackPanel Orientation="Horizontal" HorizontalAlignment="Right">
-                <TextBlock Text="Drew Zagreichuk" VerticalAlignment="Center" FontSize="16"/>
+                <TextBlock Text="Please log in to continue..." VerticalAlignment="Center" FontSize="16"/>
                 <materialDesign:PopupBox PlacementMode="BottomAndAlignRightEdges" StaysOpen="False" Margin="10">
                     <StackPanel Width="150">
                         <Button Content="Settings"/>
                         <Button Content="Account"/>
                         <Button Content="Help"/>
                         <Separator/>
+                        <Button x:Name="BtnLogin" Content="Login" Click="BtnLogin_Click"/>
                         <Button x:Name="BtnLogout" Content="Logout" Click="BtnLogout_Click"/>
                     </StackPanel>
                 </materialDesign:PopupBox>
@@ -58,6 +62,7 @@
                 <TextBlock HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="22">CarsShopDemo</TextBlock>
         </Grid>
         <!--#endregion-->
+       
         <!--#region LeftSlideMenu-->
             <Grid x:Name="GridMenu" Width="70" HorizontalAlignment="Left" Background="#FF31577E">
             <Grid.Effect>

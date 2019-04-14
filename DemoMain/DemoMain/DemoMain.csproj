@@ -64,11 +64,20 @@
     <Compile Include="CallUsPage.xaml.cs">
       <DependentUpon>CallUsPage.xaml</DependentUpon>
     </Compile>
+    <Compile Include="CheckUser.cs" />
+    <Compile Include="Database\InitializeDBCars.cs" />
     <Compile Include="DillersPage.xaml.cs">
       <DependentUpon>DillersPage.xaml</DependentUpon>
     </Compile>
     <Compile Include="HomePage.xaml.cs">
       <DependentUpon>HomePage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Database\InitializeDBUsers.cs" />
+    <Compile Include="LogButtonPage.xaml.cs">
+      <DependentUpon>LogButtonPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="LoginPage.xaml.cs">
+      <DependentUpon>LoginPage.xaml</DependentUpon>
     </Compile>
     <Compile Include="VehiclesPage.xaml.cs">
       <DependentUpon>VehiclesPage.xaml</DependentUpon>
@@ -82,6 +91,14 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="HomePage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="LogButtonPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="LoginPage.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -134,6 +151,11 @@
   </ItemGroup>
   <ItemGroup>
     <Resource Include="Images\vw-arteon-359-235.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Database\TablesDataUsers.sql" />
+    <Content Include="Database\TablesDataCars.sql" />
+    <Content Include="CheckUser.sql" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
