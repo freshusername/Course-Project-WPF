@@ -1,4 +1,4 @@
-SELECT u.Nickname AS Nickname,
-       u.Password AS PASSWORD
-FROM Users AS u
-WHERE u.Nickname = @UserNickname AND u.Password = @UserPassword;
+SELECT u.Login AS Login,
+       u.Password AS Password
+FROM Accounts AS u
+WHERE u.Login = @UserNickname AND u.Password = @UserPassword;

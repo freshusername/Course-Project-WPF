@@ -20,10 +20,7 @@ namespace DemoMain
             this.UserPassword = password;
         }
         
-        private const string ConnectionString = @"
-            Server=EXPLORER\SQL2017; 
-            Database=UsersDB; 
-            Integrated Security=true;";
+        private const string ConnectionString = @"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=D:\course 2\1.C#\ProjectWPF\Course-Project-WPF\DemoMain\DemoMain\CarsDB.mdf;Integrated Security=True";
         private const string SelectionQueryPath = @"..\..\CheckUser.sql";
 
         public void CheckUserFunc()
@@ -57,7 +54,6 @@ namespace DemoMain
                 }
                 else
                 {
-                    int usersNumber = 1;
                     while (true)
                     {
 
