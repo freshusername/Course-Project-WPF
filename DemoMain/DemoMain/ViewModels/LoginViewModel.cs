@@ -36,7 +36,7 @@ namespace DemoMain.ViewModels
                 row[0] = user.Login;
                 row[1] = user.Email;
                 row[2] = user.Password;
-                row[3] = user.IsRealtor;
+                row[3] = user.IsAdmin;
 
                 table.Rows.Add(row);
 
@@ -53,7 +53,7 @@ namespace DemoMain.ViewModels
             {
                 connection.Open();
 
-                SqlDataAdapter adapter = new SqlDataAdapter("select login, password from Accounts", connection);
+                SqlDataAdapter adapter = new SqlDataAdapter("select Login, Password from Accounts", connection);
 
                 DataSet set = new DataSet();
 
@@ -63,7 +63,7 @@ namespace DemoMain.ViewModels
 
                 foreach (DataRow acc in set.Tables[0].Rows)
                 {
-                    accs.Add(acc.Field<string>("login").Trim(), acc.Field<string>("password").Trim());
+                    accs.Add(acc.Field<string>("Login").Trim(), acc.Field<string>("Password").Trim());
                 }
 
                 if (accs.TryGetValue(check_login, out string t))
@@ -144,7 +144,7 @@ namespace DemoMain.ViewModels
             {
                 con.Open();
 
-                SqlDataAdapter adapter = new SqlDataAdapter($"select * from Accounts where login='{login}'", con);
+                SqlDataAdapter adapter = new SqlDataAdapter($"select * from Accounts where Login='{login}'", con);
 
                 DataSet ds = new DataSet();
 
@@ -154,7 +154,7 @@ namespace DemoMain.ViewModels
                 {
                     DataRow row = ds.Tables[0].Rows[0];
 
-                    return User.GetInstance(row.Field<string>("login"), row.Field<string>("email"), row.Field<string>("password"), row.Field<bool>("status"));
+                    return User.GetInstance(row.Field<string>("Login"), row.Field<string>("Email"), row.Field<string>("Password"), row.Field<bool>("IsAdmin"));
                 }
                 else
                     return null;

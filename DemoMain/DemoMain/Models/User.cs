@@ -1,13 +1,15 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
 namespace DemoMain.Models
 {
-    class User
-    {
+    //Class User as an implementayion of Singleton pattern
+    public class User
+    { 
         private static User instance;
 
         // model fields
@@ -17,19 +19,19 @@ namespace DemoMain.Models
 
         public string Password { get; }
 
-        public bool IsRealtor { get; }
+        public bool IsAdmin { get; }
 
         // GetInstance method
-        public static User GetInstance(string login, string email, string password, bool isRealtor)
+        public static User GetInstance(string login, string email, string password, bool IsAdmin)
         {
             if (instance == null)
-                instance = new User(login, email, password, isRealtor);
+                instance = new User(login, email, password, IsAdmin);
 
             return instance;
         }
 
         // Constructor
-        private User(string login, string email, string password, bool isRealtor)
+        private User(string login, string email, string password, bool IsAdmin)
         {
             Login = login;
 
@@ -37,7 +39,7 @@ namespace DemoMain.Models
 
             Password = password;
 
-            IsRealtor = isRealtor;
+            this.IsAdmin = IsAdmin;
         }
 
         // this method support proper linking with core app form

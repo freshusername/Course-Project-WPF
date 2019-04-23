@@ -16,17 +16,17 @@ namespace DemoMain.ViewModels
         // connection string
         readonly string connectionString = @"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=D:\course 2\1.C#\ProjectWPF\Course-Project-WPF\DemoMain\DemoMain\CarsDB.mdf;Integrated Security=True";
 
-        public Offer ActiveOffer { get; private set; }
-        public List<Offer> CatalogOffers { get; } = new List<Offer>();
+        public Car ActiveCar { get; private set; }
+        public List<Car> CatalogCars { get; } = new List<Car>();
 
         // this method provides initial data for application
-        public void PreloadOffers(Image leftBtn, Image rightBtn)
+        public void PreloadCars(Image leftBtn, Image rightBtn)
         {
             using (SqlConnection connection = new SqlConnection(connectionString))
             {
                 connection.Open();
 
-                SqlDataAdapter adapter = new SqlDataAdapter($"select * from Offers", connection);
+                SqlDataAdapter adapter = new SqlDataAdapter($"select * from Cars", connection);
 
                 DataSet set = new DataSet();
 
@@ -34,25 +34,30 @@ namespace DemoMain.ViewModels
 
                 foreach (DataRow row in set.Tables[0].Rows)
                 {
-                    Offer loadOffer = new Offer(
-                        row.Field<string>("owner"),
-                        row.Field<string>("email"),
-                        row.Field<string>("phoneNumber"),
-                        row.Field<float>("price")
+                    Car loadCar = new Car(
+                        row.Field<string>("Name"),
+                        row.Field<string>("Model"),
+                        row.Field<string>("Transmission"),
+                        row.Field<string>("GazType"),
+                        row.Field<float>("EngineLitres"),
+                        row.Field<string>("TypeOfCar"),
+                        row.Field<float>("Price"),
+                        row.Field<string>("Photos"),
+                        row.Field<int>("Discount")
                         )
                     {
-                        Discount = row.Field<int>("discount")
+                        carDiscount = row.Field<int>("Discount")
                     };
-                    CatalogOffers.Add(loadOffer);
+                    CatalogCars.Add(loadCar);
                 }
 
-                ActiveOffer = CatalogOffers.FirstOrDefault();
-                if (CatalogOffers.Count > 1)
+                ActiveCar = CatalogCars.FirstOrDefault();
+                if (CatalogCars.Count > 1)
                 {
                     rightBtn.Visibility = Visibility.Visible;
                     leftBtn.Visibility = Visibility.Hidden;
                 }
-                else if (CatalogOffers.Count <= 1)
+                else if (CatalogCars.Count <= 1)
                 {
                     leftBtn.Visibility = Visibility.Hidden;
                     rightBtn.Visibility = Visibility.Hidden;
@@ -61,13 +66,13 @@ namespace DemoMain.ViewModels
         }
 
         // inserting new offer
-        public void AddOffer(string address, string owner, string email, string phoneNumber, int squareFeet, float price, Label addressLabel, Label ownerLabel, Label emailLabel, Label phoneLabel, Label feetLabel, Label priceLabel, Image rightBtn, Image leftBtn, Canvas catalog, Label noOffersLabel)
+        public void AddCar(string carName, string carModel, string carTransmission, string carGazType, float carEngineLitres, string carTypeOfCar, int carDiscount, string carImgPath, float carPrice, TextBlock carNameLabel, TextBlock carModelLabel, TextBlock carTransmissionLabel, TextBlock carGazTypeLabel, TextBlock carEngineLitresLabel,TextBlock carTypeOfCarLabel, TextBlock carDiscountLabel, TextBlock priceLabel, Image rightBtn, Image leftBtn, StackPanel catalog, Label noOffersLabel)
         {
             using (SqlConnection connection = new SqlConnection(connectionString))
             {
                 connection.Open();
 
-                SqlDataAdapter adapter = new SqlDataAdapter("select * from Offers", connection);
+                SqlDataAdapter adapter = new SqlDataAdapter("select * from Cars", connection);
 
                 DataSet set = new DataSet();
 
@@ -75,12 +80,18 @@ namespace DemoMain.ViewModels
 
                 DataRow row = set.Tables[0].NewRow();
 
-                Offer offer = new Offer( owner, email, phoneNumber, price);
+                Car car = new Car( carName, carModel, carTransmission, carGazType,carEngineLitres, carTypeOfCar, carPrice, carImgPath, carDiscount);
 
-                row[1] = offer.Owner;
-                row[2] = offer.Email;
-                row[3] = offer.PhoneNumber;
-                row[5] = offer.Price;
+                row[1] = car.carName;
+                row[2] = car.carModel;
+                row[3] = car.carTransmission;
+                row[4] = car.carGazType;
+                row[5] = car.carEngineLitres;
+                row[6] = car.carTypeOfCar;
+                row[8] = car.carDiscount;
+                row[9] = car.carImgPath;
+                row[10] = car.carPrice;
+
 
                 set.Tables[0].Rows.Add(row);
 
@@ -88,20 +99,25 @@ namespace DemoMain.ViewModels
 
                 adapter.Update(set);
 
-                CatalogOffers.Add(offer);
+                CatalogCars.Add(car);
 
-                ActiveOffer = offer;
+                ActiveCar = car;
 
-                ownerLabel.Content = ActiveOffer.Owner;
-                emailLabel.Content = ActiveOffer.Email;
-                phoneLabel.Content = ActiveOffer.PhoneNumber;
-                priceLabel.Content = ActiveOffer.Price;
-                if (CatalogOffers.Count > 1)
+                carNameLabel.Text = ActiveCar.carName;
+                carModelLabel.Text = ActiveCar.carModel;
+                carTransmissionLabel.Text = ActiveCar.carTransmission;
+                carEngineLitresLabel.Text = ActiveCar.carEngineLitres.ToString();
+                carTypeOfCarLabel.Text = ActiveCar.carTypeOfCar;
+                carGazTypeLabel.Text = ActiveCar.carGazType;
+                carDiscountLabel.Text = ActiveCar.carDiscount.ToString();
+                priceLabel.Text = ActiveCar.carPrice.ToString();
+
+                if (CatalogCars.Count > 1)
                 {
                     rightBtn.Visibility = Visibility.Hidden;
                     leftBtn.Visibility = Visibility.Visible;
                 }
-                else if (CatalogOffers.Count <= 1)
+                else if (CatalogCars.Count <= 1)
                 {
                     leftBtn.Visibility = Visibility.Hidden;
                     rightBtn.Visibility = Visibility.Hidden;
