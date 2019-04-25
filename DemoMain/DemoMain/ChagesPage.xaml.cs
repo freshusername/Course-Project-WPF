@@ -25,37 +25,6 @@ namespace DemoMain
             InitializeComponent();
         }
 
-        private void BtnLogin_Click(object sender, RoutedEventArgs e)
-        {
-            //        private readonly LoginViewModel viewModel = new LoginViewModel();
-            //    private User activeUser;
-            //    //private List<string> canvasNames = new List<string>() { "CatalogCanvas" };
-
-            //    public void LoadFromAccount(string login, string email, string password, bool IsAdmin)
-            //    {
-            //        activeUser = User.GetInstance(login, email, password, IsAdmin);
-
-            //        viewModel.PreloadCars(SlideLeftButton, SlideRightButton);
-
-            //        if (viewModel.CatalogOffers.Count > 0)
-            //        {
-            //            CatalogCanvas.Visibility = Visibility.Visible;
-
-            //            AddressValue.Content = viewModel.activeUser.Address;
-            //            OwnerNameValue.Content = viewModel.activeUserr.Owner;
-            //            EmailValue.Content = viewModel.activeUser.Email;
-            //            PhoneValue.Content = viewModel.activeUser.PhoneNumber;
-            //            SquareValue.Content = viewModel.activeUser.SquareFeet;
-            //            if (viewModel.ActiveOffer.Discount > 0)
-            //            {
-            //                PriceLabel.Content = $"Price(-{viewModel.activeUser.Discount}%) :";
-            //            }
-            //            PriceValue.Content = viewModel.activeUser.Price;
-            //        }
-            //        else
-            //            NoOffersLabel.Visibility = Visibility.Visible;
-            //    }
-            //}
-        }
+        
     }
 }

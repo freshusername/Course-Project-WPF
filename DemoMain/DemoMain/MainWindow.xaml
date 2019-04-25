@@ -129,10 +129,10 @@
                         <TextBlock Text="Github" VerticalAlignment="Center"  Margin="20 10"/>
                     </StackPanel>
                     </ListViewItem>
-                    <ListViewItem x:Name="ItemChanges" Height="60" MouseLeftButtonDown="ItemChanges_MouseLeftButtonDown">
+                    <ListViewItem x:Name="ItemChanges" Height="60" MouseLeftButtonDown="ItemChanges_MouseLeftButtonDown_1">
                         <StackPanel Orientation="Horizontal">
-                            <materialDesign:PackIcon Kind="KeyChange"  Height="25" Width="25" Margin="10"/>
-                            <TextBlock Text="Github" VerticalAlignment="Center"  Margin="20 10"/>
+                            <materialDesign:PackIcon Kind="Toolbox"  Height="25" Width="25" Margin="10"/>
+                            <TextBlock Text="Change Cars" VerticalAlignment="Center"  Margin="20 10"/>
                         </StackPanel>
                     </ListViewItem>
                 </ListView>

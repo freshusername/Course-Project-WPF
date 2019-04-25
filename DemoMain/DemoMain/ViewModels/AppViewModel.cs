@@ -20,7 +20,7 @@ namespace DemoMain.ViewModels
         public List<Car> CatalogCars { get; } = new List<Car>();
 
         // this method provides initial data for application
-        public void PreloadCars(Image leftBtn, Image rightBtn)
+        public void PreloadCars(Button leftBtn, Button rightBtn)
         {
             using (SqlConnection connection = new SqlConnection(connectionString))
             {
@@ -65,7 +65,7 @@ namespace DemoMain.ViewModels
             }
         }
 
-        // inserting new offer
+        // inserting new car
         public void AddCar(string carName, string carModel, string carTransmission, string carGazType, float carEngineLitres, string carTypeOfCar, int carDiscount, string carImgPath, float carPrice, TextBlock carNameLabel, TextBlock carModelLabel, TextBlock carTransmissionLabel, TextBlock carGazTypeLabel, TextBlock carEngineLitresLabel,TextBlock carTypeOfCarLabel, TextBlock carDiscountLabel, TextBlock priceLabel, Image rightBtn, Image leftBtn, StackPanel catalog, Label noOffersLabel)
         {
             using (SqlConnection connection = new SqlConnection(connectionString))

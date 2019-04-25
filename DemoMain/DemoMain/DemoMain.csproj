@@ -92,13 +92,7 @@
       <DependentUpon>HomePage.xaml</DependentUpon>
     </Compile>
     <Compile Include="Database\InitializeDBUsers.cs" />
-    <Compile Include="View\LogButtonPage.xaml.cs">
-      <DependentUpon>LogButtonPage.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="View\LoginPage.xaml.cs">
-      <DependentUpon>LoginPage.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="View\LoginWindow.xaml.cs">
+    <Compile Include="LoginWindow.xaml.cs">
       <DependentUpon>LoginWindow.xaml</DependentUpon>
     </Compile>
     <Compile Include="Models\Offer.cs" />
@@ -124,15 +118,7 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="View\LogButtonPage.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
-    <Page Include="View\LoginPage.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
-    <Page Include="View\LoginWindow.xaml">
+    <Page Include="LoginWindow.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -198,6 +184,8 @@
     <Content Include="Database\TablesDataUsers.sql" />
     <Content Include="Database\TablesDataCars.sql" />
     <Content Include="CheckUser.sql" />
+    <Resource Include="Images\Eye.png" />
+    <Resource Include="Images\newUser.png" />
     <Resource Include="Images\logos\audi.jpg" />
     <Resource Include="Images\logos\bmw.jpg" />
     <Resource Include="Images\logos\ford.jpg" />

@@ -26,45 +26,14 @@ namespace DemoMain
     /// </summary>
     public partial class MainWindow : Window
     {
-        private readonly LoginViewModel viewModel = new LoginViewModel();
+        private AppViewModel viewModel = new AppViewModel();
         private User activeUser;
-        //private List<string> canvasNames = new List<string>() { "CatalogCanvas" };
+        private List<string> canvasNames = new List<string>() { "CatalogCanvas" };
 
-        public void LoadFromAccount(string login, string email, string password, bool IsAdmin)
-        {
-            activeUser = User.GetInstance(login, email, password, IsAdmin);
-
-            viewModel.PreloadCars(SlideLeftButton, SlideRightButton);
-
-            if (viewModel.CatalogOffers.Count > 0)
-            {
-                CatalogCanvas.Visibility = Visibility.Visible;
-
-                AddressValue.Content = viewModel.ActiveOffer.Address;
-                OwnerNameValue.Content = viewModel.ActiveOffer.Owner;
-                EmailValue.Content = viewModel.ActiveOffer.Email;
-                PhoneValue.Content = viewModel.ActiveOffer.PhoneNumber;
-                SquareValue.Content = viewModel.ActiveOffer.SquareFeet;
-                if (viewModel.ActiveOffer.Discount > 0)
-                {
-                    PriceLabel.Content = $"Price(-{viewModel.ActiveOffer.Discount}%) :";
-                }
-                PriceValue.Content = viewModel.ActiveOffer.Price;
-            }
-            else
-                NoOffersLabel.Visibility = Visibility.Visible;
-        }
 
         public MainWindow()
         {
-            //MainFrame.Content = new LoginPage();
-            //MainFrame.Content = new LogButtonPage();
-            //InitializeDBCars dbCars = new InitializeDBCars();
-            //dbCars.Initialize();
-            //MessageBox.Show(dbCars.OKstr);
-            //InitializeDBUsers dbUsers = new InitializeDBUsers();
-            //dbUsers.Initialize();
-            //MessageBox.Show(dbUsers.OKstr);
+            
             InitializeComponent();
         }
 
@@ -91,26 +60,7 @@ namespace DemoMain
             Process.Start(startInfo);
         }
 
-        //private void ListViewMenu_PreviewMouseLeftButtonUp(object sender, MouseButtonEventArgs e)
-        //{
-        //    var item = sender as ListViewItem;
-        //    if (item != null && item.IsSelected)
-        //    {
-        //        //Do your stuff
-        //        MainFrame.Content = new VehiclesPage();
-        //    }
-        //}
-
-        //private void ListViewMenu_PreviewMouseLeftButtonUp_1(object sender, MouseButtonEventArgs e)
-        //{
-        //    var item = sender as ListViewItem;
-        //    if (item != null && item.IsSelected)
-        //    {
-        //        //Do your stuff
-        //        MainFrame.Content = new VehiclesPage();
-        //    }
-        //}
-
+       
         private void ItemVehicles_PreviewMouseLeftButtonUp(object sender, MouseButtonEventArgs e)
         {
             MainFrame.Content = new VehiclesPage();
@@ -136,10 +86,15 @@ namespace DemoMain
 
         private void BtnLogin_Click(object sender, RoutedEventArgs e)
         {
-            MainFrame.Content = new LogButtonPage();
+
         }
 
         private void ItemChanges_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)
+        {
+            MainFrame.Content = new ChagesPage();
+        }
+
+        private void ItemChanges_MouseLeftButtonDown_1(object sender, MouseButtonEventArgs e)
         {
             MainFrame.Content = new ChagesPage();
         }

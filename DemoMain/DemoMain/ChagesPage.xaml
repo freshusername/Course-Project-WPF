@@ -5,11 +5,12 @@
       xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
       xmlns:local="clr-namespace:DemoMain"
       mc:Ignorable="d" 
-      d:DesignHeight="530" d:DesignWidth="800"
+      d:DesignHeight="450" d:DesignWidth="800"
       Title="ChagesPage" >
 
     <Grid>
-        <StackPanel MinWidth="430" MinHeight="380">
+        <TextBlock Text="TEST" FontSize="50"/>
+        <!--<StackPanel MinWidth="430" MinHeight="380">
             <Label Content="Adding new car" HorizontalAlignment="Center" FontSize="16" FontFamily="Tw Cen MT Condensed Extra Bold"/>
 
             <StackPanel Orientation="Horizontal">
@@ -76,7 +77,8 @@
                 <TextBox x:Name="txtCarsPhotos" Width="400" Height="50" FontFamily="Rockwell" FontSize="26"/>
             </StackPanel>
 
-            <Button x:Name="btnLogin" Content="Add car" VerticalAlignment="Center" HorizontalAlignment="Center" Width="350" Height="35"  Margin ="20" Click="BtnLogin_Click_1" ></Button>
-        </StackPanel>
+            <Button x:Name="btnLogin" Content="Add car" VerticalAlignment="Center" HorizontalAlignment="Center" Width="350" Height="35"  Margin ="20"  Click="BtnLogin_Click"></Button>
+        
+        </StackPanel>-->
     </Grid>
 </Page>
