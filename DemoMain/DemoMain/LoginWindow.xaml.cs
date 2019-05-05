@@ -14,6 +14,8 @@ using System.Windows.Shapes;
 
 using DemoMain.ViewModels;
 using DemoMain.Models;
+using DemoMain.EF;
+
 namespace DemoMain
 {
     /// <summary>
@@ -33,11 +35,25 @@ namespace DemoMain
         {
             MainWindow coreAppWindow = new MainWindow();
 
-            User user = viewModel.LoadUser(txtNickname.Text.Trim());
+            //User user = viewModel.LoadUser(txtNickname.Text.Trim(), txtPassword.Password);
+            CarsDBEntities1 context = new CarsDBEntities1();
+            var user = context.Accounts
+                .Where(u => u.Login == txtNickname.Text)
+                .FirstOrDefault();
+            txtNickname.Text = user.Login;
+            if (user != null)
+            {
+                MessageBox.Show($"{user.Login} - {user.Password}");
+                MessageBox.Show($"{txtNickname.Text} - {txtPassword.Password}");
+                if (user.Password == txtPassword.Password)
+                {
+                    coreAppWindow.Show();
+                    this.Close();
+                }
+                else { MessageBox.Show("wrong password"); }
+            }
+            else { MessageBox.Show("No such user!"); }
 
-            coreAppWindow.Show();
-
-            this.Close();
         }
 
         private void CreateAccount_MouseMove(object sender, MouseEventArgs e)
@@ -107,7 +123,7 @@ namespace DemoMain
             {
                 if (txtConfirmPassword.Password == txtRegPassword.Password)
                 {
-                    viewModel.InsertUser(User.GetInstance(txtRegUsername.Text, txtEmail.Text, txtRegPassword.Password, (bool)chBxAdminCheckBox.IsChecked));
+                    viewModel.InsertUser(Accounts.GetInstance(txtRegUsername.Text, txtEmail.Text, txtRegPassword.Password, (bool)chBxAdminCheckBox.IsChecked));
 
                     RegisterPanel.Visibility = Visibility.Hidden;
                     LoginPanel.Visibility = Visibility.Visible;

@@ -9,12 +9,12 @@
       Title="ChagesPage" >
 
     <Grid>
-            <Grid.RowDefinitions>
-                <RowDefinition Height="0.1*"></RowDefinition>
-                <RowDefinition Height="*">
-                </RowDefinition>
-            </Grid.RowDefinitions>
-            
+        <Grid.RowDefinitions>
+            <RowDefinition Height="0.1*"></RowDefinition>
+            <RowDefinition Height="*">
+            </RowDefinition>
+        </Grid.RowDefinitions>
+
         <StackPanel x:Name="navigPanel" Grid.Row="0" Orientation="Horizontal" HorizontalAlignment="Center" VerticalAlignment="Center">
             <Button x:Name="addCarbtn" Content="Add Car" IsEnabled="False" Click="AddCarbtn_Click"/>
             <Button x:Name="remCarbtn" Content="Remove Car" Click="RemCarbtn_Click"/>
@@ -26,12 +26,12 @@
             <StackPanel Orientation="Horizontal">
                 <TextBlock Text="Car's Manufacturer: " FontFamily="Rockwell" FontSize="18" FontStyle="Italic" Padding="10" Margin="5, 5, 50, 5"/>
                 <ComboBox x:Name="CarNameComboBox" Height="50" Width="350" >
-                    
+
 
                 </ComboBox>
             </StackPanel>
 
-            
+
             <StackPanel Orientation="Horizontal">
                 <TextBlock Text="Model: " FontFamily="Rockwell" FontSize="18" FontStyle="Italic" Padding="10" Margin="5, 5, 50, 5"/>
                 <TextBox x:Name="txtCarsModel" Width="400" Height="50" FontFamily="Rockwell" FontSize="26"/>
@@ -66,7 +66,7 @@
                 <TextBlock Text="Photos Path: " FontFamily="Rockwell" FontSize="18" FontStyle="Italic" Padding="10" Margin="5, 5, 50, 5"/>
                 <Button x:Name="btnOpenFile" Click="BtnOpenFile_Click"/>
                 <TextBox Visibility="Hidden" x:Name="txtCarsPhotos" Width="400" Height="50" FontFamily="Rockwell" FontSize="26"/>
-                
+
             </StackPanel>
             <StackPanel Orientation="Horizontal">
                 <TextBlock Text="Car price: " FontFamily="Rockwell" FontSize="18" FontStyle="Italic" Padding="10" Margin="5, 5, 50, 5"/>
@@ -74,20 +74,24 @@
             </StackPanel>
 
             <Button x:Name="btnAddCar" Content="Add car" VerticalAlignment="Center" HorizontalAlignment="Center" Width="350" Height="35"  Margin ="20"  Click="BtnAddCar_Click"></Button>
-        
+
         </StackPanel>
         <StackPanel x:Name="remCarPanel" Grid.Row="1" MinWidth="430" MinHeight="380" Visibility="Hidden">
-            
-            
+
+
         </StackPanel>
         <StackPanel x:Name="mngUsersPanel" Grid.Row="1" MinWidth="430" MinHeight="380" Visibility="Hidden">
             <StackPanel Orientation="Horizontal">
                 <TextBlock Text="Фильтр: " Margin="5"/>
                 <TextBox Text="{Binding FilterText}" Width="350" Margin="5"/>
             </StackPanel>
-            <DataGrid x:Name="Accountsdtgr" Margin="5" ItemsSource="{Binding Accs}" CanUserAddRows="False" CanUserDeleteRows="True" CanUserSortColumns="True" SelectionChanged="Accountsdtgr_SelectionChanged"></DataGrid>
-            <TextBox x:Name="txttest"></TextBox>
-
+            <DataGrid x:Name="Accountsdtgr" Margin="5" ItemsSource="{Binding Accs}" SelectedItem="{Binding CurrentUser}" CanUserAddRows="False" CanUserSortColumns="True" SelectionChanged="Accountsdtgr_SelectionChanged"></DataGrid>
+            <StackPanel Margin="5" Background="#FF8DACF0">
+                <TextBlock x:Name="txtGetLogin" FontSize="16" Text="{Binding ElementName=Accountsdtgr, Path=SelectedItem.Login}"></TextBlock>
+                <TextBlock x:Name="txtGetPassword" FontSize="16" Text="{Binding ElementName=Accountsdtgr, Path=SelectedItem.Password}"></TextBlock>
+                <TextBlock x:Name="txtGetEmail" FontSize="16" Text="{Binding ElementName=Accountsdtgr, Path=SelectedItem.Email}"></TextBlock>
+                <TextBlock x:Name="txtGetIsAdmin" FontSize="16" Text="{Binding ElementName=Accountsdtgr, Path=SelectedItem.IsAdmin}"></TextBlock>
+            </StackPanel>
             <Button x:Name="btnRemUserAccount" Click="BtnRemUserAccount_Click" Content="☺REMOVE USER"  Background="#FF1E4A6E" BorderBrush="#FF1AD8D8" Foreground="#FFFF8181"/>
         </StackPanel>
     </Grid>

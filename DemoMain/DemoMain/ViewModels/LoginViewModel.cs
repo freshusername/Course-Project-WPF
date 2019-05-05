@@ -7,7 +7,7 @@ using System.Net;
 using System.Net.Mail;
 using System.Text;
 using System.Threading.Tasks;
-
+using DemoMain.EF;
 using DemoMain.Models;
 namespace DemoMain.ViewModels
 {
@@ -17,7 +17,7 @@ namespace DemoMain.ViewModels
         readonly string connectionString = @"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=D:\course 2\1.C#\ProjectWPF\Course-Project-WPF\DemoMain\DemoMain\CarsDB.mdf;Integrated Security=True";
 
         // insert user to Accounts table after clicking on registration button
-        public void InsertUser(User user)
+        public void InsertUser(Accounts user)
         {
             using (SqlConnection connection = new SqlConnection(connectionString))
             {
@@ -138,13 +138,13 @@ namespace DemoMain.ViewModels
         }
 
         // this method is responsible for preparing appropriate User object for beeing used in LoadFromAcc method
-        public User LoadUser(string login)
+        public User LoadUser(string login, string pass)
         {
             using (SqlConnection con = new SqlConnection(connectionString))
             {
                 con.Open();
 
-                SqlDataAdapter adapter = new SqlDataAdapter($"select * from Accounts where Login='{login}'", con);
+                SqlDataAdapter adapter = new SqlDataAdapter($"select * from Accounts where Login='{login}' and Password='{pass}'", con);
 
                 DataSet ds = new DataSet();
 

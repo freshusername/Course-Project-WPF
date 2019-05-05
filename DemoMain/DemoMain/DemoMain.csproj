@@ -222,19 +222,12 @@
     <Resource Include="Images\vw-arteon-359-235.jpg" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Database\TablesDataUsers.sql" />
+    <Content Include="Database\TablesDataCars.sql" />
     <Content Include="CarsDB.mdf">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
     <Content Include="CarsDB_log.ldf">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-      <DependentUpon>CarsDB.mdf</DependentUpon>
-    </Content>
-    <Content Include="Database\TablesDataUsers.sql" />
-    <Content Include="Database\TablesDataCars.sql" />
-    <Content Include="EF\CarsDB.mdf">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
-    <Content Include="EF\CarsDB_log.ldf">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
       <DependentUpon>CarsDB.mdf</DependentUpon>
     </Content>

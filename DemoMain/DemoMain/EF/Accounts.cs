@@ -20,6 +20,25 @@ namespace DemoMain.EF
         public string Password { get; set; }
         public bool IsAdmin { get; set; }
 
+        private static Accounts instance;
+
+        public Accounts() { }
+
+        private Accounts(string login, string email, string password, bool isAdmin)
+        {
+            Login = login;
+            Email = email;
+            Password = password;
+            IsAdmin = isAdmin;
+        }
+
+        public static Accounts GetInstance(string login, string email, string password, bool IsAdmin)
+        {
+            if (instance == null)
+                instance = new Accounts(login, email, password, IsAdmin);
+
+            return instance;
+        }
 
         public static List<Accounts> GetAccounts()
         {
