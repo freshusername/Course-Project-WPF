@@ -72,7 +72,7 @@ namespace DemoMain.Models
             get { return _carGazType; }
             set
             {
-                _carTransmission = value;
+                _carGazType = value;
                 OnPropertyChanged("carGazType");
             }
         }

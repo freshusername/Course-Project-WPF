@@ -170,5 +170,22 @@ namespace DemoMain
         {
 
         }
+
+        private void SkipLogin_MouseUp(object sender, MouseButtonEventArgs e)
+        {
+            MainWindow mw = new MainWindow();
+            mw.Show();
+            this.Close();
+        }
+
+        private void SkipLogin_MouseMove(object sender, MouseEventArgs e)
+        {
+
+        }
+
+        private void SkipLogin_MouseLeave(object sender, MouseEventArgs e)
+        {
+
+        }
     }
 }

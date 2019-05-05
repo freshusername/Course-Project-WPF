@@ -14,6 +14,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using DemoMain.EF;
 
 namespace DemoMain
 {
@@ -22,44 +23,26 @@ namespace DemoMain
     /// </summary>
     public partial class VehiclesPage : Page
     {
-        private AppViewModel viewModel = new AppViewModel();
-        private User activeUser;
-        private List<string> canvasNames = new List<string>() { "CatalogCanvas" };
-        public void LoadFromAcc(string login, string email, string password, bool IsAdmin)
-        {
-            activeUser = User.GetInstance(login, email, password, IsAdmin);
-
-            viewModel.PreloadCars(PrevCarsBtn, NextCarsBtn);
-
-            if (viewModel.CatalogCars.Count > 0)
-            {
-                CatalogCarsGrid.Visibility = Visibility.Visible;
-
-                txtNameAuto1.Text = viewModel.ActiveCar.carName;
-                txtTransmission1.Text = viewModel.ActiveCar.carTransmission;
-                txtTypeOfGaz.Text = viewModel.ActiveCar.carGazType;
-                txtDoors1.Text = viewModel.ActiveCar.carTypeOfCar;
-
-                //for (var i = 0; i < viewModel.CatalogCars.Count; i++)
-                //{
-                //    txtDoors1.Text = viewModel.CatalogCars[i].carName ;
-                    
-
-                //}
-
-                //will be created soon...
-                //if (viewModel.ActiveCar.carDiscount > 0)
-                //{
-                //    txtPrice.Content = $"Price(-{viewModel.ActiveCar.carDiscount}%) :";
-                //}
-                //txtPrice.Content = viewModel.ActiveCar.carPrice;
-            }
-            else
-                NoCarsLabel.Visibility = Visibility.Visible;
-        }
+        //private AppViewModel viewModel = new AppViewModel();
+        //private User activeUser;
+        //private List<string> canvasNames = new List<string>() { "CatalogCanvas" };
+        
         public VehiclesPage()
         {
             InitializeComponent();
+        }
+        private void AddTreeNode()
+        {
+            CarsDBEntities1 context = new CarsDBEntities1();
+
+            var test = context.CarManufacturer
+                .Where(a => a.Id != 0)
+                .Select(a => a.Id)
+                .ToList();
+            var test1 = context.Cars
+                .Where(a => a.CarManufacturerId != 0)
+                .Select(a => a.CarManufacturerId)
+                .ToList();
         }
     }
 }

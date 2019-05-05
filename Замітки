@@ -18,9 +18,9 @@ TO DO:
 
 
 
-1.
-2.Сторінки з автомобілями(9 авто на сторінці)
+1.Binding from db to combobox to choose car's name in PageChanges.xaml.cs
+2.TreeView з авто з бд
 3.Організувати зміну ціни кнопкою(паттерн стратегія) і відповідно замалювати текстблок типом *акція*
-4.Переробити USerCheck функцію в класі CheckUser
-5.Розібратись в Binding(Привязка ніка юзера до лейбла в хедері)
+4.binding in TreeView
+5.
 6.

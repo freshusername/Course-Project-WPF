@@ -11,18 +11,20 @@
     <Grid Background="WhiteSmoke" ShowGridLines="True" x:Name="CatalogCarsGrid">
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="*"></ColumnDefinition>
-            <ColumnDefinition Width="*"></ColumnDefinition>
-            <ColumnDefinition Width="*"></ColumnDefinition>
+            <ColumnDefinition Width="0.2*"></ColumnDefinition>
         </Grid.ColumnDefinitions>
         <Grid.RowDefinitions>
             <RowDefinition Height="*"></RowDefinition>
-            <RowDefinition Height="*"></RowDefinition>
-            <RowDefinition Height="*"></RowDefinition>
         </Grid.RowDefinitions>
+        
+        
+        
+        
         <StackPanel Grid.Column="0" Grid.Row="0" VerticalAlignment="Center" HorizontalAlignment="Center">
             <Image Source="../Images/FordMustang.jpg" Width="265" Height="147"></Image>
             
         </StackPanel>
+        
         <StackPanel Grid.Column="0" Grid.Row="0" VerticalAlignment="Top" >
             <Border Margin="5" Width="100" BorderThickness="1" CornerRadius="3" Background="#FF1489DC" HorizontalAlignment="Right">
                 <TextBlock x:Name="txtNameAuto1" TextAlignment="Center"  Text="VW ARTEON 2018"/>
@@ -38,182 +40,71 @@
             </Border>
         </StackPanel>
         
-        <!--===============================================-->
+        <StackPanel Orientation="Vertical" HorizontalAlignment="Center" Grid.Column="1">
+            <TreeView FontFamily="Tahoma" FontSize="15" x:Name="CarsTreeView" >
+                <TextBlock>Автомобілі</TextBlock>
+                <TreeViewItem Header="Audi">
+                    <TreeViewItem Header="A6"></TreeViewItem>
+                    <TreeViewItem Header="RS7"></TreeViewItem>
+                    <TreeViewItem Header="A4"></TreeViewItem>
+                    <TreeViewItem Header="S5"></TreeViewItem>
+                </TreeViewItem>
+                <TreeViewItem Header="BMW">
+                    <TreeViewItem Header="X7">
+                    </TreeViewItem>
+                    <TreeViewItem Header="M5">
+                    </TreeViewItem>
+                    <TreeViewItem Header="7 series">
+                    </TreeViewItem>
+                    <TreeViewItem Header="5 series">
+                    </TreeViewItem>
+                    
+                </TreeViewItem>
+                <TreeViewItem Header="Mercedes-Benz">
+                    <TreeViewItem Header="S class"></TreeViewItem>
+                    <TreeViewItem Header="C class"></TreeViewItem>
+                    <TreeViewItem Header="Gelentwagen"></TreeViewItem>
+                    <TreeViewItem Header="GLS series"></TreeViewItem>
 
-        <StackPanel Grid.Column="1" Grid.Row="0" VerticalAlignment="Center" HorizontalAlignment="Center">
-            <Image Source="../Images/FordMustang.jpg" Width="265" Height="147"></Image>
+                </TreeViewItem>
+                <TreeViewItem Header="Ford">
+                    <TreeViewItem Header="X">
+                        <TreeViewItem Header="C#" />
+                        <TreeViewItem Header="C/C++" />
+                        <TreeViewItem Header="Java" />
+                    </TreeViewItem>
+                    <TreeViewItem Header="M">
+                        <TreeViewItem Header="Visual Basic" />
+                        <TreeViewItem Header="VB.Net" />
+                        <TreeViewItem Header="PureBasic" />
+                    </TreeViewItem>
+                    <TreeViewItem Header="7 series">
+                        <TreeViewItem Header="Visual Basic" />
+                        <TreeViewItem Header="VB.Net" />
+                        <TreeViewItem Header="PureBasic" />
+                    </TreeViewItem>
+                    <TreeViewItem Header="5 series">
+                        <TreeViewItem Header="Visual Basic" />
+                        <TreeViewItem Header="VB.Net" />
+                        <TreeViewItem Header="PureBasic" />
+                    </TreeViewItem>
 
-        </StackPanel>
-        <StackPanel Grid.Column="1" Grid.Row="0" VerticalAlignment="Top" >
-            <Border Margin="5" Width="100" BorderThickness="1" CornerRadius="3" Background="#FF1489DC" HorizontalAlignment="Right">
-                <TextBlock  x:Name="txtNameAuto2" TextAlignment="Center"  Text="VW ARTEON 2018"/>
-            </Border>
-            <Border Margin="5" Width="100" BorderThickness="1" CornerRadius="3" Background="#FF1489DC" HorizontalAlignment="Right">
-                <TextBlock x:Name="txtTypeOfGaz2" TextAlignment="Center"  Text="DIESEL"/>
-            </Border>
-            <Border Margin="5" Width="100" BorderThickness="1" CornerRadius="3" Background="#FF1489DC" HorizontalAlignment="Right">
-                <TextBlock x:Name="txtTransmission2" TextAlignment="Center"  Text="TIPTRONIK"/>
-            </Border>
-            <Border Margin="5" Width="100" BorderThickness="1" CornerRadius="3" Background="#FF1489DC" HorizontalAlignment="Right">
-                <TextBlock x:Name="txtDoors2" TextAlignment="Center"  Text="5 DOORS"/>
-            </Border>
-        </StackPanel>
-
-        <!--===============================================-->
-
-        <StackPanel Grid.Column="2" Grid.Row="0" VerticalAlignment="Center" HorizontalAlignment="Center">
-            <Image Source="../Images/FordMustang.jpg" Width="265" Height="147"></Image>
-
-        </StackPanel>
-        <StackPanel Grid.Column="2" Grid.Row="0" VerticalAlignment="Top" >
-            <Border Margin="5" Width="100" BorderThickness="1" CornerRadius="3" Background="#FF1489DC" HorizontalAlignment="Right">
-                <TextBlock  x:Name="txtNameAuto3" TextAlignment="Center"  Text="VW ARTEON 2018"/>
-            </Border>
-            <Border Margin="5" Width="100" BorderThickness="1" CornerRadius="3" Background="#FF1489DC" HorizontalAlignment="Right">
-                <TextBlock x:Name="txtTypeOfGaz3" TextAlignment="Center"  Text="DIESEL"/>
-            </Border>
-            <Border Margin="5" Width="100" BorderThickness="1" CornerRadius="3" Background="#FF1489DC" HorizontalAlignment="Right">
-                <TextBlock x:Name="txtTransmission3" TextAlignment="Center"  Text="TIPTRONIK"/>
-            </Border>
-            <Border Margin="5" Width="100" BorderThickness="1" CornerRadius="3" Background="#FF1489DC" HorizontalAlignment="Right">
-                <TextBlock x:Name="txtDoors3" TextAlignment="Center"  Text="5 DOORS"/>
-            </Border>
-        </StackPanel>
-
-        <!--===============================================-->
-
-        <StackPanel Grid.Column="0" Grid.Row="1" VerticalAlignment="Center" HorizontalAlignment="Center">
-            <Image Source="../Images/FordMustang.jpg" Width="265" Height="147"></Image>
-
-        </StackPanel>
-        <StackPanel Grid.Column="0" Grid.Row="1" VerticalAlignment="Top" >
-            <Border Margin="5" Width="100" BorderThickness="1" CornerRadius="3" Background="#FF1489DC" HorizontalAlignment="Right">
-                <TextBlock  x:Name="txtNameAuto4" TextAlignment="Center"  Text="VW ARTEON 2018"/>
-            </Border>
-            <Border Margin="5" Width="100" BorderThickness="1" CornerRadius="3" Background="#FF1489DC" HorizontalAlignment="Right">
-                <TextBlock x:Name="txtTypeOfGaz4" TextAlignment="Center"  Text="DIESEL"/>
-            </Border>
-            <Border Margin="5" Width="100" BorderThickness="1" CornerRadius="3" Background="#FF1489DC" HorizontalAlignment="Right">
-                <TextBlock x:Name="txtTransmission4" TextAlignment="Center"  Text="TIPTRONIK"/>
-            </Border>
-            <Border Margin="5" Width="100" BorderThickness="1" CornerRadius="3" Background="#FF1489DC" HorizontalAlignment="Right">
-                <TextBlock x:Name="txtDoors4" TextAlignment="Center"  Text="5 DOORS"/>
-            </Border>
-        </StackPanel>
-        
-        <!--===============================================-->
-
-        <StackPanel Grid.Column="1" Grid.Row="1" VerticalAlignment="Center" HorizontalAlignment="Center">
-            <Image Source="../Images/FordMustang.jpg" Width="265" Height="147"></Image>
-        </StackPanel>
-        <StackPanel Grid.Column="1" Grid.Row="1" VerticalAlignment="Top" >
-            <Label Content="No cars" x:Name="NoCarsLabel" Visibility="Collapsed"/>
-
-            <Border Margin="5" Width="100" BorderThickness="1" CornerRadius="3" Background="#FF1489DC" HorizontalAlignment="Right">
-                <TextBlock  x:Name="txtNameAuto5" TextAlignment="Center"  Text="VW ARTEON 2018"/>
-            </Border>
-            <Border Margin="5" Width="100" BorderThickness="1" CornerRadius="3" Background="#FF1489DC" HorizontalAlignment="Right">
-                <TextBlock x:Name="txtTypeOfGaz5" TextAlignment="Center"  Text="DIESEL"/>
-            </Border>
-            <Border Margin="5" Width="100" BorderThickness="1" CornerRadius="3" Background="#FF1489DC" HorizontalAlignment="Right">
-                <TextBlock x:Name="txtTransmission5" TextAlignment="Center"  Text="TIPTRONIK"/>
-            </Border>
-            <Border Margin="5" Width="100" BorderThickness="1" CornerRadius="3" Background="#FF1489DC" HorizontalAlignment="Right">
-                <TextBlock x:Name="txtDoors5" TextAlignment="Center"  Text="5 DOORS"/>
-            </Border>
+                </TreeViewItem>
+                <TreeViewItem Header="VolksWagen">
+                    <TreeViewItem Header="Arteon"></TreeViewItem>
+                    <TreeViewItem Header="Passat"></TreeViewItem>
+                    <TreeViewItem Header="Golf"></TreeViewItem>
+                    <TreeViewItem Header="Tiguan"></TreeViewItem>
+                </TreeViewItem>
+            </TreeView>
         </StackPanel>
 
-        <!--===============================================-->
 
-        <StackPanel Grid.Column="2" Grid.Row="1" VerticalAlignment="Center" HorizontalAlignment="Center">
-            <Image Source="../Images/FordMustang.jpg" Width="265" Height="147"></Image>
 
-        </StackPanel>
-        <StackPanel Grid.Column="2" Grid.Row="1" VerticalAlignment="Top" >
-            <Border Margin="5" Width="100" BorderThickness="1" CornerRadius="3" Background="#FF1489DC" HorizontalAlignment="Right">
-                <TextBlock  x:Name="txtNameAuto6" TextAlignment="Center"  Text="VW ARTEON 2018"/>
-            </Border>
-            <Border Margin="5" Width="100" BorderThickness="1" CornerRadius="3" Background="#FF1489DC" HorizontalAlignment="Right">
-                <TextBlock x:Name="txtTypeOfGaz6" TextAlignment="Center"  Text="DIESEL"/>
-            </Border>
-            <Border Margin="5" Width="100" BorderThickness="1" CornerRadius="3" Background="#FF1489DC" HorizontalAlignment="Right">
-                <TextBlock x:Name="txtTransmission6" TextAlignment="Center"  Text="TIPTRONIK"/>
-            </Border>
-            <Border Margin="5" Width="100" BorderThickness="1" CornerRadius="3" Background="#FF1489DC" HorizontalAlignment="Right">
-                <TextBlock x:Name="txtDoors6" TextAlignment="Center"  Text="5 DOORS"/>
-            </Border>
-        </StackPanel>
 
-        <!--===============================================-->
-
-        <StackPanel Grid.Column="0" Grid.Row="2" VerticalAlignment="Center" HorizontalAlignment="Center">
-            <Image Source="../Images/FordMustang.jpg" Width="265" Height="147"></Image>
-
-        </StackPanel>
-        <StackPanel Grid.Column="0" Grid.Row="2" VerticalAlignment="Top" >
-            <Border Margin="5" Width="100" BorderThickness="1" CornerRadius="3" Background="#FF1489DC" HorizontalAlignment="Right">
-                <TextBlock  x:Name="txtNameAuto7" TextAlignment="Center"  Text="VW ARTEON 2018"/>
-            </Border>
-            <Border Margin="5" Width="100" BorderThickness="1" CornerRadius="3" Background="#FF1489DC" HorizontalAlignment="Right">
-                <TextBlock x:Name="txtTypeOfGaz7" TextAlignment="Center"  Text="DIESEL"/>
-            </Border>
-            <Border Margin="5" Width="100" BorderThickness="1" CornerRadius="3" Background="#FF1489DC" HorizontalAlignment="Right">
-                <TextBlock x:Name="txtTransmission7" TextAlignment="Center"  Text="TIPTRONIK"/>
-            </Border>
-            <Border Margin="5" Width="100" BorderThickness="1" CornerRadius="3" Background="#FF1489DC" HorizontalAlignment="Right">
-                <TextBlock x:Name="txtDoors7" TextAlignment="Center"  Text="5 DOORS"/>
-            </Border>
-        </StackPanel>
-
-        <!--===============================================-->
-
-        <StackPanel  Grid.Column="1" Grid.Row="2" VerticalAlignment="Center" HorizontalAlignment="Center">
-            <Image Source="../Images/FordMustang.jpg" Width="265" Height="147"></Image>
-
-        </StackPanel>
-        <StackPanel x:Name="HaveNavigateBottomButtons" Grid.Column="1" Grid.Row="2" VerticalAlignment="Top" >
-            <Border Margin="5" Width="100" BorderThickness="1" CornerRadius="3" Background="#FF1489DC" HorizontalAlignment="Right">
-                <TextBlock  x:Name="txtNameAuto8" TextAlignment="Center"  Text="VW ARTEON 2018"/>
-            </Border>
-            <Border Margin="5" Width="100" BorderThickness="1" CornerRadius="3" Background="#FF1489DC" HorizontalAlignment="Right">
-                <TextBlock x:Name="txtTypeOfGaz8" TextAlignment="Center"  Text="DIESEL"/>
-            </Border>
-            <Border Margin="5" Width="100" BorderThickness="1" CornerRadius="3" Background="#FF1489DC" HorizontalAlignment="Right">
-                <TextBlock x:Name="txtTransmission8" TextAlignment="Center"  Text="TIPTRONIK"/>
-            </Border>
-            <Border Margin="5" Width="100" BorderThickness="1" CornerRadius="3" Background="#FF1489DC" HorizontalAlignment="Right">
-                <TextBlock x:Name="txtDoors8" TextAlignment="Center"  Text="5 DOORS"/>
-            </Border>
-            
-            <StackPanel x:Name="NavigateBottomButtons" Orientation="Horizontal">
-                <Button Width="100" Content="Previous" x:Name="PrevCarsBtn" Margin="0, 0, 30, 0"/>
-                <Button Width="100" Content="Next" x:Name="NextCarsBtn" Margin="30, 0, 0, 0"/>
-            </StackPanel>
-
-        </StackPanel>
-
-        <!--===============================================-->
-
-        <StackPanel Grid.Column="2" Grid.Row="2" VerticalAlignment="Center" HorizontalAlignment="Center">
-            <Image Source="../Images/FordMustang.jpg" Width="265" Height="147"></Image>
-
-        </StackPanel>
-        <StackPanel Grid.Column="2" Grid.Row="2" VerticalAlignment="Top" >
-            <Border Margin="5" Width="100" BorderThickness="1" CornerRadius="3" Background="#FF1489DC" HorizontalAlignment="Right">
-                <TextBlock  x:Name="txtNameAuto9" TextAlignment="Center"  Text="VW ARTEON 2018"/>
-            </Border>
-            <Border Margin="5" Width="100" BorderThickness="1" CornerRadius="3" Background="#FF1489DC" HorizontalAlignment="Right">
-                <TextBlock x:Name="txtTypeOfGaz9" TextAlignment="Center"  Text="DIESEL"/>
-            </Border>
-            <Border Margin="5" Width="100" BorderThickness="1" CornerRadius="3" Background="#FF1489DC" HorizontalAlignment="Right">
-                <TextBlock x:Name="txtTransmission9" TextAlignment="Center"  Text="TIPTRONIK"/>
-            </Border>
-            <Border Margin="5" Width="100" BorderThickness="1" CornerRadius="3" Background="#FF1489DC" HorizontalAlignment="Right">
-                <TextBlock x:Name="txtDoors9" TextAlignment="Center"  Text="5 DOORS"/>
-            </Border>
-        </StackPanel>
 
 
         <!--<TextBlock Grid.Column="1" Text="Page of Vehicles" VerticalAlignment="Center" FontSize="40" TextAlignment="Center"/>-->
-    </Grid>
+    
+        </Grid>
 </Page>

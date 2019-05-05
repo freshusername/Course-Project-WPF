@@ -33,6 +33,7 @@
             <Button x:Name="btnRegister" Content="Register" HorizontalAlignment="Center" VerticalAlignment="Center" Width="232" Height="35" FontSize="20" Click="BtnRegister_Click" Visibility="Visible" />
             
             <TextBlock x:Name="LoginAccount" MouseUp="LoginAccount_MouseUp" HorizontalAlignment="Center" TextWrapping="Wrap" Text="Already has account?" VerticalAlignment="Top" TextDecorations="{x:Null}" FontSize="16" Foreground="#FF2D89C9" FontWeight="Bold" Cursor="Hand" MouseMove="LoginAccount_MouseMove" MouseLeave="LoginAccount_MouseLeave"/>
+            <TextBlock x:Name="SkipLogin" MouseUp="SkipLogin_MouseUp" HorizontalAlignment="Right" TextWrapping="Wrap" Text="Skip =>" VerticalAlignment="Top" TextDecorations="{x:Null}" FontSize="14" Foreground="#FF26AE3F" FontWeight="Bold" Cursor="Hand" MouseMove="SkipLogin_MouseMove" MouseLeave="SkipLogin_MouseLeave" Margin="0, 0, 30, 0"/>
 
 
 

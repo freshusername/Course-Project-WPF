@@ -1,0 +1,94 @@
+﻿<Page x:Class="DemoMain.ChagesPage"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:DemoMain"
+      mc:Ignorable="d" 
+      d:DesignHeight="570" d:DesignWidth="800"
+      Title="ChagesPage" >
+
+    <Grid>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="0.1*"></RowDefinition>
+                <RowDefinition Height="*">
+                </RowDefinition>
+            </Grid.RowDefinitions>
+            
+        <StackPanel x:Name="navigPanel" Grid.Row="0" Orientation="Horizontal" HorizontalAlignment="Center" VerticalAlignment="Center">
+            <Button x:Name="addCarbtn" Content="Add Car" IsEnabled="False" Click="AddCarbtn_Click"/>
+            <Button x:Name="remCarbtn" Content="Remove Car" Click="RemCarbtn_Click"/>
+            <Button x:Name="mngUsersbtn" Content="Manage Users" Click="MngUsersbtn_Click"/>
+        </StackPanel>
+        <StackPanel x:Name="addCarPanel" Grid.Row="1" MinWidth="430" MinHeight="380" Visibility="Hidden">
+            <!--<Label Content="Adding new car" HorizontalAlignment="Center" FontSize="16" FontFamily="Tw Cen MT Condensed Extra Bold"/>-->
+
+            <StackPanel Orientation="Horizontal">
+                <TextBlock Text="Car's Manufacturer: " FontFamily="Rockwell" FontSize="18" FontStyle="Italic" Padding="10" Margin="5, 5, 50, 5"/>
+                <ComboBox x:Name="CarNameComboBox" Height="50" Width="350" >
+                    
+
+                </ComboBox>
+            </StackPanel>
+
+            
+            <StackPanel Orientation="Horizontal">
+                <TextBlock Text="Model: " FontFamily="Rockwell" FontSize="18" FontStyle="Italic" Padding="10" Margin="5, 5, 50, 5"/>
+                <TextBox x:Name="txtCarsModel" Width="400" Height="50" FontFamily="Rockwell" FontSize="26"/>
+            </StackPanel>
+
+            <StackPanel Orientation="Horizontal">
+                <TextBlock Text="Transmission: " FontFamily="Rockwell" FontSize="18" FontStyle="Italic" Padding="10" Margin="5, 5, 50, 5"/>
+                <TextBox x:Name="txtCarsTransmission" Width="400" Height="50" FontFamily="Rockwell" FontSize="26"/>
+            </StackPanel>
+
+            <StackPanel Orientation="Horizontal">
+                <TextBlock Text="GazType: " FontFamily="Rockwell" FontSize="18" FontStyle="Italic" Padding="10" Margin="5, 5, 50, 5"/>
+                <TextBox x:Name="txtCarsGazType" Width="400" Height="50" FontFamily="Rockwell" FontSize="26"/>
+            </StackPanel>
+
+            <StackPanel Orientation="Horizontal">
+                <TextBlock Text="Engine Litres: " FontFamily="Rockwell" FontSize="18" FontStyle="Italic" Padding="10" Margin="5, 5, 50, 5"/>
+                <TextBox x:Name="txtCarsEngineLitres" Width="400" Height="50" FontFamily="Rockwell" FontSize="26"/>
+            </StackPanel>
+
+            <StackPanel Orientation="Horizontal">
+                <TextBlock Text="Type Of Car: " FontFamily="Rockwell" FontSize="18" FontStyle="Italic" Padding="10" Margin="5, 5, 50, 5"/>
+                <TextBox x:Name="txtCarsTypeOfCar" Width="400" Height="50" FontFamily="Rockwell" FontSize="26"/>
+            </StackPanel>
+
+            <StackPanel Orientation="Horizontal">
+                <TextBlock Text="Discount(int): " FontFamily="Rockwell" FontSize="18" FontStyle="Italic" Padding="10" Margin="5, 5, 50, 5"/>
+                <TextBox x:Name="txtCarsDiscount" Width="400" Height="50" FontFamily="Rockwell" FontSize="26"/>
+            </StackPanel>
+
+            <StackPanel Orientation="Horizontal">
+                <TextBlock Text="Photos Path: " FontFamily="Rockwell" FontSize="18" FontStyle="Italic" Padding="10" Margin="5, 5, 50, 5"/>
+                <Button x:Name="btnOpenFile" Click="BtnOpenFile_Click"/>
+                <TextBox Visibility="Hidden" x:Name="txtCarsPhotos" Width="400" Height="50" FontFamily="Rockwell" FontSize="26"/>
+                
+            </StackPanel>
+            <StackPanel Orientation="Horizontal">
+                <TextBlock Text="Car price: " FontFamily="Rockwell" FontSize="18" FontStyle="Italic" Padding="10" Margin="5, 5, 50, 5"/>
+                <TextBox x:Name="txtCarPrice" Width="400" Height="50" FontFamily="Rockwell" FontSize="26"/>
+            </StackPanel>
+
+            <Button x:Name="btnAddCar" Content="Add car" VerticalAlignment="Center" HorizontalAlignment="Center" Width="350" Height="35"  Margin ="20"  Click="BtnAddCar_Click"></Button>
+        
+        </StackPanel>
+        <StackPanel x:Name="remCarPanel" Grid.Row="1" MinWidth="430" MinHeight="380" Visibility="Hidden">
+            
+            
+        </StackPanel>
+        <StackPanel x:Name="mngUsersPanel" Grid.Row="1" MinWidth="430" MinHeight="380" Visibility="Hidden">
+            <StackPanel Orientation="Horizontal">
+                <TextBlock Text="Фильтр: " Margin="5"/>
+                <TextBox Text="{Binding FilterText}" Width="350" Margin="5"/>
+            </StackPanel>
+            <DataGrid x:Name="Accountsdtgr" Margin="5" ItemsSource="{Binding Accs}" CanUserAddRows="False" CanUserDeleteRows="True" CanUserSortColumns="True" SelectionChanged="Accountsdtgr_SelectionChanged"></DataGrid>
+            <TextBox x:Name="txttest"></TextBox>
+
+            <Button x:Name="btnRemUserAccount" Click="BtnRemUserAccount_Click" Content="☺REMOVE USER"  Background="#FF1E4A6E" BorderBrush="#FF1AD8D8" Foreground="#FFFF8181"/>
+        </StackPanel>
+    </Grid>
+</Page>

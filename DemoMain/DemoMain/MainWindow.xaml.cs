@@ -15,6 +15,10 @@ using System.Windows.Shapes;
 using System.Diagnostics;
 using DemoMain.Models;
 using DemoMain.ViewModels;
+using DemoMain.EF;
+
+
+
 
 namespace DemoMain
 {
@@ -39,7 +43,9 @@ namespace DemoMain
 
         private void BtnLogout_Click(object sender, RoutedEventArgs e)
         {
-            Application.Current.Shutdown();
+            LoginWindow lw = new LoginWindow();
+            lw.Show();
+            this.Close();
         }
 
         private void ButtonOpenMenu_Click(object sender, RoutedEventArgs e)
@@ -84,19 +90,14 @@ namespace DemoMain
 
         }
 
-        private void BtnLogin_Click(object sender, RoutedEventArgs e)
-        {
 
-        }
-
-        private void ItemChanges_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)
+        private void ItemChanges_MouseLeftButtonUp(object sender, MouseButtonEventArgs e)
         {
             MainFrame.Content = new ChagesPage();
-        }
 
-        private void ItemChanges_MouseLeftButtonDown_1(object sender, MouseButtonEventArgs e)
-        {
-            MainFrame.Content = new ChagesPage();
         }
+        
+
+        
     }
 }
