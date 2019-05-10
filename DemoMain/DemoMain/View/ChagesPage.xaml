@@ -51,10 +51,6 @@
             <StackPanel Orientation="Horizontal">
                 <TextBlock Text="Car's Manufacturer: "/>
                 <ComboBox x:Name="CarNameComboBox" Height="50" Width="350" >
-<<<<<<< HEAD
-=======
-
->>>>>>> 9726b1159f449f6c1d7f54b4200918f9af6298ee
 
                 </ComboBox>
             </StackPanel>
@@ -91,7 +87,6 @@
             </StackPanel>
 
             <StackPanel Orientation="Horizontal">
-<<<<<<< HEAD
                 <TextBlock Text="Photos Path: " />
                 <Button x:Name="btnOpenPh1" Click="BtnOpenPh1_Click" Content="Choose 1st img" Margin="5" MaxWidth="130"/>
                 <Button x:Name="btnOpenPh2" Click="BtnOpenPh2_Click" Content="Choose 2nd img" Margin="5" MaxWidth="130"/>
@@ -99,11 +94,6 @@
                 <TextBox Visibility="Hidden" x:Name="txtCarsPhoto1"/>
                 <TextBox Visibility="Hidden" x:Name="txtCarsPhoto2"/>
                 <TextBox Visibility="Hidden" x:Name="txtCarsPhoto3"/>
-=======
-                <TextBlock Text="Photos Path: " FontFamily="Rockwell" FontSize="18" FontStyle="Italic" Padding="10" Margin="5, 5, 50, 5"/>
-                <Button x:Name="btnOpenFile" Click="BtnOpenFile_Click"/>
-                <TextBox Visibility="Hidden" x:Name="txtCarsPhotos" Width="400" Height="50" FontFamily="Rockwell" FontSize="26"/>
->>>>>>> 9726b1159f449f6c1d7f54b4200918f9af6298ee
 
             </StackPanel>
             <StackPanel Orientation="Horizontal">
@@ -115,11 +105,6 @@
 
         </StackPanel>
         <StackPanel x:Name="remCarPanel" Grid.Row="1" MinWidth="430" MinHeight="380" Visibility="Hidden">
-<<<<<<< HEAD
-=======
-
-
->>>>>>> 9726b1159f449f6c1d7f54b4200918f9af6298ee
         </StackPanel>
         
         <StackPanel x:Name="mngUsersPanel" Grid.Row="1" MinWidth="430" MinHeight="380" Visibility="Hidden" Orientation="Horizontal">
@@ -174,17 +159,6 @@
                 </StackPanel>
                 <Button x:Name="btnRemUserAccount" Click="BtnRemUserAccount_Click" Content="☺REMOVE USER"  Background="#FF1E4A6E" BorderBrush="#FF1AD8D8" Foreground="#FFFF8181"/>
             </StackPanel>
-<<<<<<< HEAD
-=======
-            <DataGrid x:Name="Accountsdtgr" Margin="5" ItemsSource="{Binding Accs}" SelectedItem="{Binding CurrentUser}" CanUserAddRows="False" CanUserSortColumns="True" SelectionChanged="Accountsdtgr_SelectionChanged"></DataGrid>
-            <StackPanel Margin="5" Background="#FF8DACF0">
-                <TextBlock x:Name="txtGetLogin" FontSize="16" Text="{Binding ElementName=Accountsdtgr, Path=SelectedItem.Login}"></TextBlock>
-                <TextBlock x:Name="txtGetPassword" FontSize="16" Text="{Binding ElementName=Accountsdtgr, Path=SelectedItem.Password}"></TextBlock>
-                <TextBlock x:Name="txtGetEmail" FontSize="16" Text="{Binding ElementName=Accountsdtgr, Path=SelectedItem.Email}"></TextBlock>
-                <TextBlock x:Name="txtGetIsAdmin" FontSize="16" Text="{Binding ElementName=Accountsdtgr, Path=SelectedItem.IsAdmin}"></TextBlock>
-            </StackPanel>
-            <Button x:Name="btnRemUserAccount" Click="BtnRemUserAccount_Click" Content="☺REMOVE USER"  Background="#FF1E4A6E" BorderBrush="#FF1AD8D8" Foreground="#FFFF8181"/>
->>>>>>> 9726b1159f449f6c1d7f54b4200918f9af6298ee
         </StackPanel>
     
     </Grid>

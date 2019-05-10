@@ -20,8 +20,8 @@
                 <Button x:Name="btnLogin" Content="Login" VerticalAlignment="Center" HorizontalAlignment="Center" Width="350" Height="75"  Margin ="20" Click="BtnLogin_Click_1" ></Button>
             <TextBlock x:Name="CreateAccount" MouseUp="CreateAccount_MouseUp" HorizontalAlignment="Center" TextWrapping="Wrap" Text="Create account" VerticalAlignment="Top" TextDecorations="{x:Null}" FontSize="18" Foreground="#FF2D89C9" FontWeight="Bold" Cursor="Hand" MouseMove="CreateAccount_MouseMove" MouseLeave="CreateAccount_MouseLeave"  />
         </StackPanel>
-        
         <StackPanel MinWidth="430" MinHeight="380" x:Name="RegisterPanel" Visibility="Visible">
+
             <Image x:Name="AddUserIcon" Height="30" Width="168" Source="D:\course 2\1.C#\ProjectWPF\Course-Project-WPF\DemoMain\DemoMain\Images\newUser.png"  Visibility="Visible"/>
             <TextBox x:Name="txtRegUsername" HorizontalAlignment="Center" Height="46" TextWrapping="Wrap" Text="Login" VerticalAlignment="Center" Width="232" FontSize="18" Foreground="#FF673AB7" TabIndex="0" GotFocus="TxtRegUsername_GotFocus"  Visibility="Visible"/>
             <TextBox x:Name="txtEmail" HorizontalAlignment="Center" Height="46" TextWrapping="Wrap" Text="Email" VerticalAlignment="Center" Width="232" FontSize="18" Foreground="#FF673AB7" GotFocus="TxtEmail_GotFocus" Canvas.Top="214" Visibility="Visible"/>

@@ -5,7 +5,6 @@ using System.Data;
 using System.Linq;
 using System.Windows;
 using System.Windows.Controls;
-using DemoMain.View.ChangesPage_MVVM.ViewModel;
 
 namespace DemoMain
 {
@@ -14,11 +13,7 @@ namespace DemoMain
     /// </summary>
     public partial class ChagesPage : Page
     {
-<<<<<<< HEAD
         public Accounts CurrentUser = new Accounts();
-=======
-        Accounts CurrentUser = new Accounts();
->>>>>>> 9726b1159f449f6c1d7f54b4200918f9af6298ee
         public ChagesPage()
         {
             InitializeComponent();
@@ -97,33 +92,17 @@ namespace DemoMain
 
 
         }
-        
+
         public string strLogin;
         private void BtnRemUserAccount_Click(object sender, RoutedEventArgs e)
         {
             CarsDBEntities context = new CarsDBEntities();
 
-            Accounts user = context.Accounts
-                .Where(l => l.Login == txtGetLogin.Text)
-                .FirstOrDefault();
-            context.Accounts.Remove(user);
-            context.SaveChanges();
-
-            MessageBox.Show("User has being deleted!");
-
-            Accountsdtgr.Items.Refresh();
-
-        }
-        private void deleteUser()
-        {
-            using (CarsDBEntities1 context = new CarsDBEntities1())
-            {
-                Accounts user = context.Accounts.Find(CurrentUser.Login);
-                context.Accounts.Remove(user);//error
-                context.SaveChanges();
-            }
             
-            
+
+            //Accounts acc = Accountsdtgr.SelectedItem as Accounts;
+
+            //var test = context.Accounts.Where()
         }
 
         private void Accountsdtgr_SelectionChanged(object sender, SelectionChangedEventArgs e)
