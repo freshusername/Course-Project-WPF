@@ -14,30 +14,34 @@ using System.Windows.Shapes;
 
 using DemoMain.ViewModels;
 using DemoMain.Models;
+using DemoMain.DbGetData_Singleton;
+
 namespace DemoMain
 {
+
+
     /// <summary>
     /// Логика взаимодействия для LoginWindow.xaml
     /// </summary>
     public partial class LoginWindow : Window
     {
+
         private readonly LoginViewModel viewModel = new LoginViewModel();
 
         public LoginWindow()
-        {
+        { 
             InitializeComponent();
         }
 
       
         private void BtnLogin_Click_1(object sender, RoutedEventArgs e)
         {
-            MainWindow coreAppWindow = new MainWindow();
+            SingletonDb sig = SingletonDb.getInstance();
+            if(sig.loginAccount(txtNickname.Text, txtPassword.Password))
+            {
+                this.Close();
+            }
 
-            User user = viewModel.LoadUser(txtNickname.Text.Trim());
-
-            coreAppWindow.Show();
-
-            this.Close();
         }
 
         private void CreateAccount_MouseMove(object sender, MouseEventArgs e)
@@ -56,18 +60,16 @@ namespace DemoMain
             RegisterPanel.Visibility = Visibility.Visible;
             LoginPanel.Visibility = Visibility.Hidden;
 
-            txtRegPassword.LostFocus += TxtRegPasswActive_LostFocus;
-            txtConfirmPassword.LostFocus += TxtConfirmPasswActive_LostFocus;
+            //txtRegPassword.LostFocus += TxtRegPasswActive_LostFocus;
+            //txtConfirmPassword.LostFocus += TxtConfirmPasswActive_LostFocus;
 
-            txtNickname.Text = "Login";
-            txtRegPassword.Clear();
+            //txtNickname.Text = "Login";
+            //txtRegPassword.Clear();
 
             txtRegUsername.Focus();
         }
 
       
-
-
         private void TxtRegUsername_GotFocus(object sender, RoutedEventArgs e)
         {
             txtRegUsername.SelectAll();
@@ -80,26 +82,7 @@ namespace DemoMain
 
         }
 
-        private void TxtRegPassword_GotFocus(object sender, RoutedEventArgs e)
-        {
-            txtRegPassword.Visibility = Visibility.Hidden;
-            txtRegPassword.Visibility = Visibility.Visible;
-            txtRegPassword.Focus();
-        }
-
-        private void ConfirmPasswordTextBox_GotFocus(object sender, RoutedEventArgs e)
-        {
-            //ConfirmPasswordTextBox.Visibility = Visibility.Hidden;
-            //ConfirmPasswActive.Visibility = Visibility.Visible;
-            //ConfirmPasswActive.Focus();
-        }
-
-     
-
-        private void ImgShowPassword_MouseLeave(object sender, MouseEventArgs e)
-        {
-
-        }
+       
 
         private void BtnRegister_Click(object sender, RoutedEventArgs e)
         {
@@ -107,22 +90,23 @@ namespace DemoMain
             {
                 if (txtConfirmPassword.Password == txtRegPassword.Password)
                 {
-                    viewModel.InsertUser(User.GetInstance(txtRegUsername.Text, txtEmail.Text, txtRegPassword.Password, (bool)chBxAdminCheckBox.IsChecked));
-
-                    RegisterPanel.Visibility = Visibility.Hidden;
-                    LoginPanel.Visibility = Visibility.Visible;
-
-
-                    txtNickname.Focus();
+                    SingletonDb sig = SingletonDb.getInstance();
+                    if(sig.registerAccount(txtRegUsername.Text, txtEmail.Text, txtRegPassword.Password, (bool)chBxAdminCheckBox.IsChecked))
+                    {
+                        RegisterPanel.Visibility = Visibility.Hidden;
+                        LoginPanel.Visibility = Visibility.Visible;
+                        txtNickname.Focus();
+                    }
+                                        
                 }
                 else if (txtConfirmPassword.Password != txtRegPassword.Password)
                 {
                     MessageBox.Show("Passwords not equal!");
                 }
             }
-            catch (Exception)
+            catch (Exception a)
             {
-                
+                MessageBox.Show(a.ToString());
             }
         }
    

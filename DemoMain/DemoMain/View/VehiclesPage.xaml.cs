@@ -14,7 +14,8 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
-using DemoMain.EF;
+using DemoMain.GetCar_BuilderPattern;
+
 
 namespace DemoMain
 {
@@ -30,10 +31,21 @@ namespace DemoMain
         public VehiclesPage()
         {
             InitializeComponent();
+
+            LstVwCars.Items.Clear();           
+            var carsList = Cars.getCars();
+            LstVwCars.ItemsSource = carsList;
+
+            CarBuilder carBuilder = new CarBuilder();
+            //carBuilder.getVehicleInfo();
+
+
+
+
         }
         private void AddTreeNode()
         {
-            CarsDBEntities1 context = new CarsDBEntities1();
+            CarsDBEntities context = new CarsDBEntities();
 
             var test = context.CarManufacturer
                 .Where(a => a.Id != 0)
@@ -44,5 +56,39 @@ namespace DemoMain
                 .Select(a => a.CarManufacturerId)
                 .ToList();
         }
+        //public static void addCar()
+        //{
+        //    CarBuilder builder = new CarBuilder();
+        //    builder.getVehicleInfo("A6");
+        //    builder.GetVehicle();
+        //    MessageBox.Show(builder.GetVehicle().ToString());
+        //}
+
+        private void ListViewItem_PreviewMouseLeftButtonUp(object sender, MouseButtonEventArgs e)
+        {
+            var item = sender as ListViewItem;
+            if (item != null)
+            {
+                //Do your stuff
+                //string s = item.ToString();
+                //MessageBox.Show(s);
+                CarBuilder builder = new CarBuilder();
+                builder.getVehicleInfo(item.Content.ToString());
+                txtCarManuf.Text = builder.GetVehicle().Name;
+                txtCarModel.Text = builder.GetVehicle().Model;
+                txtCarTransmission.Text = builder.GetVehicle().Transmission;
+                txtCarGazType.Text = builder.GetVehicle().GazType;
+                txtEngineLitres.Text = builder.GetVehicle().EngineLitres.ToString();
+                txtPrice.Text = builder.GetVehicle().Price.ToString();
+                txtTypeOfCar.Text = builder.GetVehicle().TypeOfCar;
+
+                Uri imageUri1 = new Uri(builder.GetVehicle().Photo1, UriKind.RelativeOrAbsolute);
+                BitmapImage imageBitmap1 = new BitmapImage(imageUri1);
+                imgCar.Source = imageBitmap1;
+
+                
+            }
+        }
+
     }
 }

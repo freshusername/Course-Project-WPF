@@ -6,7 +6,7 @@
         xmlns:local="clr-namespace:DemoMain"
         xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
         mc:Ignorable="d"
-        Title="CarShopDemo" Height="450" Width="800" ResizeMode="CanResizeWithGrip" WindowStartupLocation="CenterScreen" SizeToContent="WidthAndHeight" MinHeight="500" MinWidth="850">
+        Title="CarShopDemo" Height="650" Width="1000" ResizeMode="CanResizeWithGrip"  WindowStartupLocation="CenterScreen" SizeToContent="Manual"  MinHeight="550" MinWidth="850">
     
     <Window.Resources>
         <Storyboard x:Key="OpenMenu">

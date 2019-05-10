@@ -1,4 +1,4 @@
-﻿using DemoMain.EF;
+﻿using DemoMain.DbGetData_Singleton;
 using DemoMain.View.ChangesPage_MVVM.ViewModel;
 using Microsoft.Win32;
 using System.Data;
@@ -13,6 +13,7 @@ namespace DemoMain
     /// </summary>
     public partial class ChagesPage : Page
     {
+        public Accounts CurrentUser = new Accounts();
         public ChagesPage()
         {
             InitializeComponent();
@@ -20,10 +21,9 @@ namespace DemoMain
         }
 
 
-
         private void fill_combobox()
         {
-            CarsDBEntities1 context = new CarsDBEntities1();
+            CarsDBEntities context = new CarsDBEntities();
             var test = context.CarManufacturer
                 .Where(a => a.Id != 0)
                 .Select(a => a.Name)
@@ -35,64 +35,26 @@ namespace DemoMain
         }
         private void BtnAddCar_Click(object sender, RoutedEventArgs e)
         {
-            CarsDBEntities1 context = new CarsDBEntities1();
+            CarsDBEntities context = new CarsDBEntities();
 
             if (CarNameComboBox.SelectedItem == null || txtCarsDiscount.Text == " " || txtCarsEngineLitres.Text == " " ||
-                txtCarsGazType.Text == "" || txtCarsModel.Text == "" || txtCarsPhotos.Text == "" || txtCarsTransmission.Text == "" ||
-                txtCarsTypeOfCar.Text == "")
+                txtCarsGazType.Text == "" || txtCarsModel.Text == "" || txtCarsPhoto1.Text == "" || txtCarsTransmission.Text == "" ||
+                txtCarsTypeOfCar.Text == "" || txtCarsPhoto2.Text == "" || txtCarsPhoto3.Text == "")
             {
                 MessageBox.Show("Input data is empty!");
             }
             else
             {
-                #region getCarManufacturerId
-                string carManufName = CarNameComboBox.SelectedItem.ToString();
-
-                var checkId = context.CarManufacturer
-                    .Where(x => x.Name == carManufName)
-                    .Select(x => new { Id = x.Id });
-
-                int[] CarManufacturerId = new int[1];
-                foreach (var item in checkId)
-                {
-                    CarManufacturerId[0] = item.Id;
-                }
-
-                #endregion
-
-                if (checkId != null)
-                {
-                    Cars CarToAdd = new Cars
-                    {
-                        Name = carManufName,
-                        Model = txtCarsModel.Text,
-                        Transmission = txtCarsTransmission.Text,
-                        GazType = txtCarsGazType.Text,
-                        EngineLitres = double.Parse(txtCarsEngineLitres.Text),
-                        TypeOfCar = txtCarsTypeOfCar.Text,
-                        CarManufacturerId = CarManufacturerId[0],
-                        Discount = int.Parse(txtCarsDiscount.Text),
-                        Photos = txtCarsPhotos.Text,
-                        Price = double.Parse(txtCarPrice.Text)
-                    };
-                    context.Cars.Add(CarToAdd);
-                    MessageBox.Show(CarToAdd.ToString());
-                    context.SaveChanges();
-                }
-                else { MessageBox.Show("No such Car manufacturer!"); }
-            }
 
 
-        }
+                SingletonDb sig = SingletonDb.getInstance();
+                sig.addCarToDb(CarNameComboBox.SelectedItem.ToString(), txtCarsModel.Text, txtCarsTransmission.Text, txtCarsGazType.Text, double.Parse(txtCarsEngineLitres.Text), txtCarsTypeOfCar.Text, int.Parse(txtCarsDiscount.Text), txtCarsPhoto1.Text, double.Parse(txtCarPrice.Text), txtCarsPhoto2.Text, txtCarsPhoto3.Text);
 
-        private void BtnOpenFile_Click(object sender, RoutedEventArgs e)
-        {
-            OpenFileDialog openFileDialog = new OpenFileDialog();
-            if (openFileDialog.ShowDialog() == true)
-            {
-                txtCarsPhotos.Text = openFileDialog.FileName;
+
             }
         }
+
+     
 
 
         private void RemCarbtn_Click(object sender, RoutedEventArgs e)
@@ -134,7 +96,7 @@ namespace DemoMain
         public string strLogin;
         private void BtnRemUserAccount_Click(object sender, RoutedEventArgs e)
         {
-            CarsDBEntities1 context = new CarsDBEntities1();
+            CarsDBEntities context = new CarsDBEntities();
 
             
 
@@ -148,7 +110,36 @@ namespace DemoMain
             DataGrid dg = (DataGrid)sender;
             DataRowView row_selected = dg.SelectedItem as DataRowView;
 
-            
+        }
+
+        private void BtnOpenPh1_Click(object sender, RoutedEventArgs e)
+        {
+            OpenFileDialog openFileDialog = new OpenFileDialog();
+            if (openFileDialog.ShowDialog() == true)
+            {
+                txtCarsPhoto1.Text = openFileDialog.FileName;
+                btnOpenPh1.Content = txtCarsPhoto1.Text;
+            }
+        }
+
+        private void BtnOpenPh2_Click(object sender, RoutedEventArgs e)
+        {
+            OpenFileDialog openFileDialog = new OpenFileDialog();
+            if (openFileDialog.ShowDialog() == true)
+            {
+                txtCarsPhoto2.Text = openFileDialog.FileName;
+                btnOpenPh2.Content = txtCarsPhoto2.Text;
+            }
+        }
+
+        private void BtnOpenPh3_Click(object sender, RoutedEventArgs e)
+        {
+            OpenFileDialog openFileDialog = new OpenFileDialog();
+            if (openFileDialog.ShowDialog() == true)
+            {
+                txtCarsPhoto3.Text = openFileDialog.FileName;
+                btnOpenPh3.Content = txtCarsPhoto3.Text;
+            }
         }
     }
 }

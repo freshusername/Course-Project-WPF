@@ -5,90 +5,161 @@
       xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
       xmlns:local="clr-namespace:DemoMain"
       mc:Ignorable="d" 
-      d:DesignHeight="570" d:DesignWidth="800"
+      d:DesignHeight="520" d:DesignWidth="700"
       Title="ChagesPage" >
 
+    <Page.Resources>
+        <Style x:Key="style1" TargetType="{x:Type TextBlock}">
+            <Setter Property="Background" Value="#FF94AFDE"></Setter>
+            <Setter Property="Margin" Value="5, 5, 40, 5"></Setter>
+        </Style>
+        <Style x:Key="style2" TargetType="{x:Type TextBlock}">
+            <Setter Property="Background" Value="#FFB3EAFF"></Setter>
+            <Setter Property="Margin" Value="5, 5"></Setter>
+        </Style>
+        <Style x:Key="style3" TargetType="{x:Type TextBlock}">
+            <Setter Property="Width" Value="150"></Setter>
+            <Setter Property="FontSize" Value="14"></Setter>
+            <Setter Property="FontFamily" Value="Berlin Sans FB"></Setter>
+            <Setter Property="Margin" Value="5, 5, 50, 5"></Setter>
+            <Setter Property="Padding" Value="10"></Setter>
+        </Style>
+        <Style x:Key="styleTxtBox" TargetType="{x:Type TextBox}">
+            <Setter Property="FontSize" Value="14"></Setter>
+            <Setter Property="FontFamily" Value="Berlin Sans FB"></Setter>
+            <Setter Property="Margin" Value="5, 5, 50, 5"></Setter>
+            <Setter Property="Padding" Value="10"></Setter>
+        </Style>
+    </Page.Resources>
     <Grid>
-            <Grid.RowDefinitions>
-                <RowDefinition Height="0.1*"></RowDefinition>
-                <RowDefinition Height="*">
-                </RowDefinition>
-            </Grid.RowDefinitions>
-            
+        <Grid.RowDefinitions>
+            <RowDefinition Height="0.1*"></RowDefinition>
+            <RowDefinition Height="*">
+            </RowDefinition>
+        </Grid.RowDefinitions>
+
         <StackPanel x:Name="navigPanel" Grid.Row="0" Orientation="Horizontal" HorizontalAlignment="Center" VerticalAlignment="Center">
-            <Button x:Name="addCarbtn" Content="Add Car" IsEnabled="False" Click="AddCarbtn_Click"/>
+            <Button x:Name="addCarbtn" Content="Add Car" Click="AddCarbtn_Click"/>
             <Button x:Name="remCarbtn" Content="Remove Car" Click="RemCarbtn_Click"/>
             <Button x:Name="mngUsersbtn" Content="Manage Users" Click="MngUsersbtn_Click"/>
         </StackPanel>
         <StackPanel x:Name="addCarPanel" Grid.Row="1" MinWidth="430" MinHeight="380" Visibility="Hidden">
             <!--<Label Content="Adding new car" HorizontalAlignment="Center" FontSize="16" FontFamily="Tw Cen MT Condensed Extra Bold"/>-->
-
+            <StackPanel.Resources>
+                <Style BasedOn="{StaticResource style3}" TargetType="{x:Type TextBlock}"></Style>
+            </StackPanel.Resources>
             <StackPanel Orientation="Horizontal">
-                <TextBlock Text="Car's Manufacturer: " FontFamily="Rockwell" FontSize="18" FontStyle="Italic" Padding="10" Margin="5, 5, 50, 5"/>
+                <TextBlock Text="Car's Manufacturer: "/>
                 <ComboBox x:Name="CarNameComboBox" Height="50" Width="350" >
-                    
 
                 </ComboBox>
             </StackPanel>
 
-            
+
             <StackPanel Orientation="Horizontal">
-                <TextBlock Text="Model: " FontFamily="Rockwell" FontSize="18" FontStyle="Italic" Padding="10" Margin="5, 5, 50, 5"/>
-                <TextBox x:Name="txtCarsModel" Width="400" Height="50" FontFamily="Rockwell" FontSize="26"/>
+                <TextBlock Text="Model: "/>
+                <TextBox x:Name="txtCarsModel" Width="400" Height="30" FontFamily="Rockwell" FontSize="26"/>
             </StackPanel>
 
             <StackPanel Orientation="Horizontal">
-                <TextBlock Text="Transmission: " FontFamily="Rockwell" FontSize="18" FontStyle="Italic" Padding="10" Margin="5, 5, 50, 5"/>
-                <TextBox x:Name="txtCarsTransmission" Width="400" Height="50" FontFamily="Rockwell" FontSize="26"/>
+                <TextBlock Text="Transmission: "/>
+                <TextBox x:Name="txtCarsTransmission"  Width="400" Height="30" FontFamily="Rockwell" FontSize="26"/>
             </StackPanel>
 
             <StackPanel Orientation="Horizontal">
-                <TextBlock Text="GazType: " FontFamily="Rockwell" FontSize="18" FontStyle="Italic" Padding="10" Margin="5, 5, 50, 5"/>
-                <TextBox x:Name="txtCarsGazType" Width="400" Height="50" FontFamily="Rockwell" FontSize="26"/>
+                <TextBlock Text="GazType: "/>
+                <TextBox x:Name="txtCarsGazType"  Width="400" Height="30" FontFamily="Rockwell" FontSize="26"/>
             </StackPanel>
 
             <StackPanel Orientation="Horizontal">
-                <TextBlock Text="Engine Litres: " FontFamily="Rockwell" FontSize="18" FontStyle="Italic" Padding="10" Margin="5, 5, 50, 5"/>
-                <TextBox x:Name="txtCarsEngineLitres" Width="400" Height="50" FontFamily="Rockwell" FontSize="26"/>
+                <TextBlock Text="Engine Litres: " />
+                <TextBox x:Name="txtCarsEngineLitres"  Width="400" Height="30" FontFamily="Rockwell" FontSize="26"/>
             </StackPanel>
 
             <StackPanel Orientation="Horizontal">
-                <TextBlock Text="Type Of Car: " FontFamily="Rockwell" FontSize="18" FontStyle="Italic" Padding="10" Margin="5, 5, 50, 5"/>
-                <TextBox x:Name="txtCarsTypeOfCar" Width="400" Height="50" FontFamily="Rockwell" FontSize="26"/>
+                <TextBlock Text="Type Of Car: "/>
+                <TextBox x:Name="txtCarsTypeOfCar"  Width="400" Height="30" FontFamily="Rockwell" FontSize="26"/>
             </StackPanel>
 
             <StackPanel Orientation="Horizontal">
-                <TextBlock Text="Discount(int): " FontFamily="Rockwell" FontSize="18" FontStyle="Italic" Padding="10" Margin="5, 5, 50, 5"/>
-                <TextBox x:Name="txtCarsDiscount" Width="400" Height="50" FontFamily="Rockwell" FontSize="26"/>
+                <TextBlock Text="Discount(int): " />
+                <TextBox x:Name="txtCarsDiscount"  Width="400" Height="30" FontFamily="Rockwell" FontSize="26"/>
             </StackPanel>
 
             <StackPanel Orientation="Horizontal">
-                <TextBlock Text="Photos Path: " FontFamily="Rockwell" FontSize="18" FontStyle="Italic" Padding="10" Margin="5, 5, 50, 5"/>
-                <Button x:Name="btnOpenFile" Click="BtnOpenFile_Click"/>
-                <TextBox Visibility="Hidden" x:Name="txtCarsPhotos" Width="400" Height="50" FontFamily="Rockwell" FontSize="26"/>
-                
+                <TextBlock Text="Photos Path: " />
+                <Button x:Name="btnOpenPh1" Click="BtnOpenPh1_Click" Content="Choose 1st img" Margin="5" MaxWidth="130"/>
+                <Button x:Name="btnOpenPh2" Click="BtnOpenPh2_Click" Content="Choose 2nd img" Margin="5" MaxWidth="130"/>
+                <Button x:Name="btnOpenPh3" Click="BtnOpenPh3_Click" Content="Choose 3rd img" Margin="5" MaxWidth="130"/>
+                <TextBox Visibility="Hidden" x:Name="txtCarsPhoto1"/>
+                <TextBox Visibility="Hidden" x:Name="txtCarsPhoto2"/>
+                <TextBox Visibility="Hidden" x:Name="txtCarsPhoto3"/>
+
             </StackPanel>
             <StackPanel Orientation="Horizontal">
-                <TextBlock Text="Car price: " FontFamily="Rockwell" FontSize="18" FontStyle="Italic" Padding="10" Margin="5, 5, 50, 5"/>
-                <TextBox x:Name="txtCarPrice" Width="400" Height="50" FontFamily="Rockwell" FontSize="26"/>
+                <TextBlock Text="Car price: " />
+                <TextBox x:Name="txtCarPrice" Width="400" Height="30" FontFamily="Rockwell" FontSize="26"/>
             </StackPanel>
 
             <Button x:Name="btnAddCar" Content="Add car" VerticalAlignment="Center" HorizontalAlignment="Center" Width="350" Height="35"  Margin ="20"  Click="BtnAddCar_Click"></Button>
-        
+
         </StackPanel>
         <StackPanel x:Name="remCarPanel" Grid.Row="1" MinWidth="430" MinHeight="380" Visibility="Hidden">
-            
-            
         </StackPanel>
-        <StackPanel x:Name="mngUsersPanel" Grid.Row="1" MinWidth="430" MinHeight="380" Visibility="Hidden">
-            <StackPanel Orientation="Horizontal">
-                <TextBlock Text="Фильтр: " Margin="5"/>
-                <TextBox Text="{Binding FilterText}" Width="350" Margin="5"/>
+        
+        <StackPanel x:Name="mngUsersPanel" Grid.Row="1" MinWidth="430" MinHeight="380" Visibility="Hidden" Orientation="Horizontal">
+            <DataGrid x:Name="Accountsdtgr" Margin="5" ItemsSource="{Binding Accs}" CanUserSortColumns="True" SelectionChanged="Accountsdtgr_SelectionChanged"></DataGrid>
+            <StackPanel Orientation="Vertical">
+                <StackPanel Orientation="Horizontal">
+                    <StackPanel Orientation="Vertical">
+                        <StackPanel.Resources>
+                            <Style BasedOn="{StaticResource style1}" TargetType="{x:Type TextBlock}"></Style>
+                        </StackPanel.Resources>
+                        <StackPanel >
+                            <TextBlock Text="User's Login: " Margin="5, 5, 40, 5" FontSize="16" FontFamily="Segoe UI Semibold"></TextBlock>
+                        </StackPanel>
+                        <StackPanel>
+                            <TextBlock Text="User's Password: " Margin="5, 5, 40, 5" FontSize="16" FontFamily="Segoe UI Semibold"></TextBlock>
+                        </StackPanel>
+                        <StackPanel >
+                            <TextBlock Text="User's Email: " Margin="5, 5, 40, 5" FontSize="16" FontFamily="Segoe UI Semibold"></TextBlock>
+                        </StackPanel>
+                        <StackPanel >
+                            <TextBlock Text="Is User Admin: " Margin="5, 5, 40, 5" FontSize="16" FontFamily="Segoe UI Semibold"></TextBlock>
+                        </StackPanel>
+                    </StackPanel>
+                    <StackPanel Orientation="Vertical">
+                        <StackPanel.Resources>
+                            <Style BasedOn="{StaticResource style2}" TargetType="{x:Type TextBlock}"></Style>
+                        </StackPanel.Resources>
+                        <StackPanel>
+                            <TextBlock x:Name="txtGetLogin" FontSize="16" FontFamily="Segoe UI Semibold" Text="{Binding ElementName=Accountsdtgr, Path=SelectedItem.Login}">
+                            </TextBlock>
+                        </StackPanel>
+                        <StackPanel>
+                            <TextBlock x:Name="txtGetPassword" FontSize="16" FontFamily="Segoe UI Semibold" Text="{Binding ElementName=Accountsdtgr, Path=SelectedItem.Password}">
+                            </TextBlock>
+                        </StackPanel>
+                        <StackPanel>
+                            <TextBlock x:Name="txtGetEmail" FontSize="16" FontFamily="Segoe UI Semibold" Text="{Binding ElementName=Accountsdtgr, Path=SelectedItem.Email}">
+                            </TextBlock>
+                        </StackPanel>
+                        <StackPanel>
+                            <TextBlock x:Name="txtGetIsAdmin" FontSize="16" FontFamily="Segoe UI Semibold" Text="{Binding ElementName=Accountsdtgr, Path=SelectedItem.IsAdmin}">
+                            </TextBlock>
+                        </StackPanel>
+                    </StackPanel>
+                </StackPanel>
+                <StackPanel Orientation="Horizontal">
+                    <StackPanel.Resources>
+                        <Style BasedOn="{StaticResource style1}" TargetType="{x:Type TextBlock}"></Style>
+                    </StackPanel.Resources>
+                    <TextBlock Text="Фильтр: " Margin="5" FontFamily="Segoe UI Semibold" FontSize="16"/>
+                    <TextBox FontFamily="Segoe UI Semibold" FontSize="16" Text="{Binding FilterText}" Width="350" Margin="5"/>
+                </StackPanel>
+                <Button x:Name="btnRemUserAccount" Click="BtnRemUserAccount_Click" Content="☺REMOVE USER"  Background="#FF1E4A6E" BorderBrush="#FF1AD8D8" Foreground="#FFFF8181"/>
             </StackPanel>
-            <DataGrid x:Name="Accountsdtgr" Margin="5" ItemsSource="{Binding Accs}" CanUserAddRows="False" CanUserDeleteRows="True" CanUserSortColumns="True" SelectionChanged="Accountsdtgr_SelectionChanged"></DataGrid>
-            <TextBox x:Name="txttest"></TextBox>
-
-            <Button x:Name="btnRemUserAccount" Click="BtnRemUserAccount_Click" Content="☺REMOVE USER"  Background="#FF1E4A6E" BorderBrush="#FF1AD8D8" Foreground="#FFFF8181"/>
         </StackPanel>
+    
     </Grid>
 </Page>

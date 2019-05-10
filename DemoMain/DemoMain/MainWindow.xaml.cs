@@ -15,7 +15,7 @@ using System.Windows.Shapes;
 using System.Diagnostics;
 using DemoMain.Models;
 using DemoMain.ViewModels;
-using DemoMain.EF;
+using DemoMain;
 
 
 
@@ -30,9 +30,9 @@ namespace DemoMain
     /// </summary>
     public partial class MainWindow : Window
     {
-        private AppViewModel viewModel = new AppViewModel();
-        private User activeUser;
-        private List<string> canvasNames = new List<string>() { "CatalogCanvas" };
+        //private AppViewModel viewModel = new AppViewModel();
+        //private User activeUser;
+        //private List<string> canvasNames = new List<string>() { "CatalogCanvas" };
 
 
         public MainWindow()
@@ -61,9 +61,7 @@ namespace DemoMain
         }
         private void ItemOpenGithub_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)
         {
-            string url = @"http://www.github.com";
-            var startInfo = new ProcessStartInfo("chrome.exe", url);
-            Process.Start(startInfo);
+            
         }
 
        

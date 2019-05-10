@@ -5,106 +5,129 @@
       xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
       xmlns:local="clr-namespace:DemoMain"
       mc:Ignorable="d" 
-      d:DesignHeight="450" d:DesignWidth="800"
+      d:DesignHeight="549" d:DesignWidth="922"
       Title="VehiclesPage">
 
+    <Page.Resources>
+        <Style x:Key="style1" TargetType="{x:Type Border}">
+            <Setter Property="Margin" Value="5"></Setter>
+            <Setter Property="Width" Value="140"></Setter>
+            <Setter Property="BorderThickness" Value="1"></Setter>
+            <Setter Property="CornerRadius" Value="3"></Setter>
+            <Setter Property="Background" Value="#FF1489DC"></Setter>
+            <Setter Property="HorizontalAlignment" Value="Right"></Setter>
+            <Setter Property="Height" Value="25"></Setter>
+        </Style>
+        <Style x:Key="style2" TargetType="{x:Type TextBlock}">
+            <Setter Property="FontFamily" Value="Berlin Sans FB"></Setter>       
+            <Setter Property="FontSize" Value="30"></Setter>       
+        </Style>
+    </Page.Resources>
     <Grid Background="WhiteSmoke" ShowGridLines="True" x:Name="CatalogCarsGrid">
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="*"></ColumnDefinition>
-            <ColumnDefinition Width="0.2*"></ColumnDefinition>
+            <ColumnDefinition Width="0.35*"></ColumnDefinition>
         </Grid.ColumnDefinitions>
         <Grid.RowDefinitions>
             <RowDefinition Height="*"></RowDefinition>
         </Grid.RowDefinitions>
-        
-        
-        
-        
-        <StackPanel Grid.Column="0" Grid.Row="0" VerticalAlignment="Center" HorizontalAlignment="Center">
-            <Image Source="../Images/FordMustang.jpg" Width="265" Height="147"></Image>
-            
-        </StackPanel>
-        
-        <StackPanel Grid.Column="0" Grid.Row="0" VerticalAlignment="Top" >
-            <Border Margin="5" Width="100" BorderThickness="1" CornerRadius="3" Background="#FF1489DC" HorizontalAlignment="Right">
-                <TextBlock x:Name="txtNameAuto1" TextAlignment="Center"  Text="VW ARTEON 2018"/>
-            </Border>
-            <Border Margin="5" Width="100" BorderThickness="1" CornerRadius="3" Background="#FF1489DC" HorizontalAlignment="Right">
-                <TextBlock x:Name="txtTypeOfGaz" TextAlignment="Center"  Text="DIESEL"/>
-            </Border>
-            <Border Margin="5" Width="100" BorderThickness="1" CornerRadius="3" Background="#FF1489DC" HorizontalAlignment="Right">
-                <TextBlock x:Name="txtTransmission1" TextAlignment="Center"  Text="TIPTRONIK"/>
-            </Border>
-            <Border Margin="5" Width="100" BorderThickness="1" CornerRadius="3" Background="#FF1489DC" HorizontalAlignment="Right">
-                <TextBlock x:Name="txtDoors1" TextAlignment="Center"  Text="5 DOORS"/>
-            </Border>
-        </StackPanel>
-        
-        <StackPanel Orientation="Vertical" HorizontalAlignment="Center" Grid.Column="1">
-            <TreeView FontFamily="Tahoma" FontSize="15" x:Name="CarsTreeView" >
-                <TextBlock>Автомобілі</TextBlock>
-                <TreeViewItem Header="Audi">
-                    <TreeViewItem Header="A6"></TreeViewItem>
-                    <TreeViewItem Header="RS7"></TreeViewItem>
-                    <TreeViewItem Header="A4"></TreeViewItem>
-                    <TreeViewItem Header="S5"></TreeViewItem>
-                </TreeViewItem>
-                <TreeViewItem Header="BMW">
-                    <TreeViewItem Header="X7">
-                    </TreeViewItem>
-                    <TreeViewItem Header="M5">
-                    </TreeViewItem>
-                    <TreeViewItem Header="7 series">
-                    </TreeViewItem>
-                    <TreeViewItem Header="5 series">
-                    </TreeViewItem>
-                    
-                </TreeViewItem>
-                <TreeViewItem Header="Mercedes-Benz">
-                    <TreeViewItem Header="S class"></TreeViewItem>
-                    <TreeViewItem Header="C class"></TreeViewItem>
-                    <TreeViewItem Header="Gelentwagen"></TreeViewItem>
-                    <TreeViewItem Header="GLS series"></TreeViewItem>
 
-                </TreeViewItem>
-                <TreeViewItem Header="Ford">
-                    <TreeViewItem Header="X">
-                        <TreeViewItem Header="C#" />
-                        <TreeViewItem Header="C/C++" />
-                        <TreeViewItem Header="Java" />
-                    </TreeViewItem>
-                    <TreeViewItem Header="M">
-                        <TreeViewItem Header="Visual Basic" />
-                        <TreeViewItem Header="VB.Net" />
-                        <TreeViewItem Header="PureBasic" />
-                    </TreeViewItem>
-                    <TreeViewItem Header="7 series">
-                        <TreeViewItem Header="Visual Basic" />
-                        <TreeViewItem Header="VB.Net" />
-                        <TreeViewItem Header="PureBasic" />
-                    </TreeViewItem>
-                    <TreeViewItem Header="5 series">
-                        <TreeViewItem Header="Visual Basic" />
-                        <TreeViewItem Header="VB.Net" />
-                        <TreeViewItem Header="PureBasic" />
-                    </TreeViewItem>
 
-                </TreeViewItem>
-                <TreeViewItem Header="VolksWagen">
-                    <TreeViewItem Header="Arteon"></TreeViewItem>
-                    <TreeViewItem Header="Passat"></TreeViewItem>
-                    <TreeViewItem Header="Golf"></TreeViewItem>
-                    <TreeViewItem Header="Tiguan"></TreeViewItem>
-                </TreeViewItem>
-            </TreeView>
+        <StackPanel x:Name="pnlCarPhotos"  Width="300" VerticalAlignment="Top" HorizontalAlignment="Left" MinWidth="290" Height="220" MinHeight="260" MaxHeight="230" MaxWidth="300">
+            <Image x:Name="imgCar" Source="../Images/FordMustang.jpg" Width="300" Height="190"></Image>
+
+            <StackPanel Orientation="Horizontal" VerticalAlignment="Bottom" Margin="0, 10" HorizontalAlignment="Center">
+                <Button x:Name="carPic1" Width="50" Content="1" Margin="10, 0" ></Button>
+                <Button x:Name="carPic2" Width="50" Content="2" Margin="10, 0" ></Button>
+                <Button x:Name="carPic3" Width="50" Content="3" Margin="10, 0" ></Button>
+            </StackPanel>
         </StackPanel>
 
 
+        <StackPanel VerticalAlignment="Top"  x:Name="pnlCarInfo"  Orientation="Horizontal" MinWidth="330" MinHeight="260" Width="330" Height="220" HorizontalAlignment="Right" MaxHeight="220" MaxWidth="330">
+            <StackPanel Width="150" VerticalAlignment="Top" HorizontalAlignment="Left">
+                <StackPanel.Resources>
+                    <Style BasedOn="{StaticResource style1}" TargetType="{x:Type Border}"></Style>
+                </StackPanel.Resources>
+                <Border>
+                    <TextBlock TextAlignment="Center"  Text=" Car Manufacturer:" FontFamily="Berlin Sans FB" FontSize="16" Foreground="White"/>
+                </Border>
+                <Border >
+                    <TextBlock TextAlignment="Center"  Text="   Model: " FontFamily="Berlin Sans FB" FontSize="16" Foreground="White"/>
+                </Border>
+                <Border >
+                    <TextBlock TextAlignment="Center"  Text="   Transmission:  " FontFamily="Berlin Sans FB" FontSize="16" Foreground="White"/>
+                </Border>
+                <Border >
+                    <TextBlock TextAlignment="Center"  Text=" Gaz Type: " FontFamily="Berlin Sans FB" FontSize="16" Foreground="White"/>
+                </Border>
+                <Border >
+                    <TextBlock TextAlignment="Center"  Text=" Engine Litres: " FontFamily="Berlin Sans FB" FontSize="16" Foreground="White"/>
+                </Border>
+                <Border >
+                    <TextBlock TextAlignment="Center"  Text=" Type of car: " FontFamily="Berlin Sans FB" FontSize="16" Foreground="White"/>
+                </Border>
+                <Border>
+                    <TextBlock TextAlignment="Center"  Text=" Price: " FontFamily="Berlin Sans FB" FontSize="16" Foreground="White"/>
+                </Border>
+            </StackPanel>
+
+            <StackPanel Margin="30, 0, 0, 0" Width="150" Grid.Column="1" Grid.Row="0" VerticalAlignment="Top" >
+                <StackPanel.Resources>
+                    <Style BasedOn="{StaticResource style1}" TargetType="{x:Type Border}"></Style>
+                </StackPanel.Resources>
+                <Border >
+                    <TextBlock x:Name="txtCarManuf" TextAlignment="Center"  Text="" FontFamily="Berlin Sans FB" FontSize="16" Foreground="#FF2F254B"/>
+                </Border>
+                <Border >
+                    <TextBlock x:Name="txtCarModel" TextAlignment="Center"  Text="" FontFamily="Berlin Sans FB" FontSize="16" Foreground="#FF2F254B"/>
+                </Border>
+                <Border >
+                    <TextBlock x:Name="txtCarTransmission" TextAlignment="Center"  Text="" FontFamily="Berlin Sans FB" FontSize="16" Foreground="#FF2F254B"/>
+                </Border>
+                <Border >
+                    <TextBlock x:Name="txtCarGazType" TextAlignment="Center"  Text="" FontFamily="Berlin Sans FB" FontSize="16" Foreground="#FF2F254B"/>
+                </Border>
+                <Border >
+                    <TextBlock x:Name="txtEngineLitres" TextAlignment="Center"  Text="" FontFamily="Berlin Sans FB" FontSize="16" Foreground="#FF2F254B"/>
+                </Border>
+                <Border >
+                    <TextBlock x:Name="txtTypeOfCar" TextAlignment="Center"  Text="" FontFamily="Berlin Sans FB" FontSize="16" Foreground="#FF2F254B"/>
+                </Border>
+                <Border >
+                    <TextBlock x:Name="txtPrice" TextAlignment="Center"  Text="" FontFamily="Berlin Sans FB" FontSize="16" Foreground="#FF2F254B"/>
+                </Border>
+            </StackPanel>
+        </StackPanel>
+
+
+        <StackPanel Grid.Column="1" Orientation="Vertical" MinWidth="200" MaxWidth="200" HorizontalAlignment="Center">
+            <ListView x:Name="LstVwCars">
+                <ListView.View>
+                    <GridView>
+                        <GridViewColumn Header="Manufacturer" DisplayMemberBinding="{Binding Name}"/>
+                        <GridViewColumn Header="Model" DisplayMemberBinding="{Binding Model}"/>
+                    </GridView>
+                </ListView.View>
+                <ListView.ItemContainerStyle>
+                    <Style TargetType="ListViewItem">
+                        <EventSetter Event="PreviewMouseLeftButtonDown" Handler="ListViewItem_PreviewMouseLeftButtonUp" />
+                    </Style>
+                </ListView.ItemContainerStyle>
+            </ListView>
+        </StackPanel>
+
+        <StackPanel VerticalAlignment="Bottom" HorizontalAlignment="Center" Orientation="Horizontal" MinWidth="600" MinHeight="160" Width="330" Height="180" MaxHeight="220" MaxWidth="600">
+            <StackPanel.Resources>
+                <Style BasedOn="{StaticResource style2}" TargetType="{x:Type TextBlock}"></Style>
+            </StackPanel.Resources>
+            <TextBlock x:Name="txtDiscount" Text="Discount"></TextBlock>
+        </StackPanel>
 
 
 
 
         <!--<TextBlock Grid.Column="1" Text="Page of Vehicles" VerticalAlignment="Center" FontSize="40" TextAlignment="Center"/>-->
-    
-        </Grid>
+
+    </Grid>
 </Page>

@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:DemoMain"
         mc:Ignorable="d"
-        Title="LoginWindow" Height="450" Width="800">
+        Title="LoginWindow" Height="400" Width="500" ResizeMode="NoResize">
 
     <Grid>
         <StackPanel MinWidth="430" MinHeight="380" x:Name="LoginPanel" Visibility="Collapsed">
