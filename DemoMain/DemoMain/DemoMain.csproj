@@ -222,6 +222,7 @@
     <Resource Include="Images\vw-arteon-359-235.jpg" />
   </ItemGroup>
   <ItemGroup>
+<<<<<<< HEAD
     <Content Include="CarsDB.mdf">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
@@ -241,6 +242,27 @@
     </Content>
     <Content Include="Database\TablesDataUsers.sql" />
     <Content Include="Database\TablesDataCars.sql" />
+=======
+    <Content Include="Database\TablesDataUsers.sql" />
+    <Content Include="Database\TablesDataCars.sql" />
+    <Content Include="CarsDB.mdf">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="CarsDB_log.ldf">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+      <DependentUpon>CarsDB.mdf</DependentUpon>
+    </Content>
+    <Content Include="EF\Model1.Context.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>Model1.edmx</DependentUpon>
+      <LastGenOutput>Model1.Context.cs</LastGenOutput>
+    </Content>
+    <Content Include="EF\Model1.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>Model1.edmx</DependentUpon>
+      <LastGenOutput>Model1.cs</LastGenOutput>
+    </Content>
+>>>>>>> 9726b1159f449f6c1d7f54b4200918f9af6298ee
     <Resource Include="Images\Eye.png" />
     <Resource Include="Images\newUser.png" />
     <Resource Include="Images\logos\audi.jpg" />

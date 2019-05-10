@@ -14,7 +14,11 @@ using System.Windows.Shapes;
 
 using DemoMain.ViewModels;
 using DemoMain.Models;
+<<<<<<< HEAD
 using DemoMain.DbGetData_Singleton;
+=======
+using DemoMain.EF;
+>>>>>>> 9726b1159f449f6c1d7f54b4200918f9af6298ee
 
 namespace DemoMain
 {
@@ -36,11 +40,34 @@ namespace DemoMain
       
         private void BtnLogin_Click_1(object sender, RoutedEventArgs e)
         {
+<<<<<<< HEAD
             SingletonDb sig = SingletonDb.getInstance();
             if(sig.loginAccount(txtNickname.Text, txtPassword.Password))
             {
                 this.Close();
             }
+=======
+            MainWindow coreAppWindow = new MainWindow();
+
+            //User user = viewModel.LoadUser(txtNickname.Text.Trim(), txtPassword.Password);
+            CarsDBEntities1 context = new CarsDBEntities1();
+            var user = context.Accounts
+                .Where(u => u.Login == txtNickname.Text)
+                .FirstOrDefault();
+            txtNickname.Text = user.Login;
+            if (user != null)
+            {
+                MessageBox.Show($"{user.Login} - {user.Password}");
+                MessageBox.Show($"{txtNickname.Text} - {txtPassword.Password}");
+                if (user.Password == txtPassword.Password)
+                {
+                    coreAppWindow.Show();
+                    this.Close();
+                }
+                else { MessageBox.Show("wrong password"); }
+            }
+            else { MessageBox.Show("No such user!"); }
+>>>>>>> 9726b1159f449f6c1d7f54b4200918f9af6298ee
 
         }
 
@@ -90,6 +117,7 @@ namespace DemoMain
             {
                 if (txtConfirmPassword.Password == txtRegPassword.Password)
                 {
+<<<<<<< HEAD
                     SingletonDb sig = SingletonDb.getInstance();
                     if(sig.registerAccount(txtRegUsername.Text, txtEmail.Text, txtRegPassword.Password, (bool)chBxAdminCheckBox.IsChecked))
                     {
@@ -98,6 +126,15 @@ namespace DemoMain
                         txtNickname.Focus();
                     }
                                         
+=======
+                    viewModel.InsertUser(Accounts.GetInstance(txtRegUsername.Text, txtEmail.Text, txtRegPassword.Password, (bool)chBxAdminCheckBox.IsChecked));
+
+                    RegisterPanel.Visibility = Visibility.Hidden;
+                    LoginPanel.Visibility = Visibility.Visible;
+
+
+                    txtNickname.Focus();
+>>>>>>> 9726b1159f449f6c1d7f54b4200918f9af6298ee
                 }
                 else if (txtConfirmPassword.Password != txtRegPassword.Password)
                 {
