@@ -7,7 +7,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace DemoMain
+namespace DemoMain.Model
 {
     using System;
     using System.Collections.Generic;
@@ -15,6 +15,7 @@ namespace DemoMain
 
     public partial class Accounts
     {
+        public int Id { get; set; }
         public string Login { get; set; }
         public string Email { get; set; }
         public string Password { get; set; }

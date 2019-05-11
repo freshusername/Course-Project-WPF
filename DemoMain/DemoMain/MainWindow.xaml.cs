@@ -13,8 +13,7 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 using System.Diagnostics;
-using DemoMain.Models;
-using DemoMain.ViewModels;
+using DemoMain.Model;
 using DemoMain;
 
 

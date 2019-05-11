@@ -7,7 +7,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace DemoMain
+namespace DemoMain.Model
 {
     using System;
     using System.Collections.Generic;

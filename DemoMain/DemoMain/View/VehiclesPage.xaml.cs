@@ -1,6 +1,4 @@
-﻿using DemoMain.Models;
-using DemoMain.ViewModels;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -15,6 +13,8 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 using DemoMain.GetCar_BuilderPattern;
+using DemoMain.Model;
+
 
 
 namespace DemoMain
@@ -72,8 +72,9 @@ namespace DemoMain
                 //Do your stuff
                 //string s = item.ToString();
                 //MessageBox.Show(s);
-                CarBuilder builder = new CarBuilder();
+                IVehicleBuilder builder = new CarBuilder();
                 builder.getVehicleInfo(item.Content.ToString());
+
                 txtCarManuf.Text = builder.GetVehicle().Name;
                 txtCarModel.Text = builder.GetVehicle().Model;
                 txtCarTransmission.Text = builder.GetVehicle().Transmission;
@@ -82,11 +83,12 @@ namespace DemoMain
                 txtPrice.Text = builder.GetVehicle().Price.ToString();
                 txtTypeOfCar.Text = builder.GetVehicle().TypeOfCar;
 
-                Uri imageUri1 = new Uri(builder.GetVehicle().Photo1, UriKind.RelativeOrAbsolute);
+
+                Uri imageUri1 = new Uri(builder.GetVehicle().Photo2, UriKind.RelativeOrAbsolute);
                 BitmapImage imageBitmap1 = new BitmapImage(imageUri1);
                 imgCar.Source = imageBitmap1;
 
-                
+
             }
         }
 

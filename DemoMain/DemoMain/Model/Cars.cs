@@ -7,7 +7,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace DemoMain
+namespace DemoMain.Model
 {
     using System;
     using System.Collections.Generic;
@@ -31,12 +31,11 @@ namespace DemoMain
     
         public virtual CarManufacturer CarManufacturer { get; set; }
 
+
         public override string ToString()
         {
             return $"{Model}";
         }
-
-
         public static List<Cars> getCars()
         {
             CarsDBEntities context = new CarsDBEntities();
@@ -66,5 +65,9 @@ namespace DemoMain
             }
             return res;
         }
+        //public override string ToString()
+        //{
+        //    return $"{}";
+        //}
     }
 }

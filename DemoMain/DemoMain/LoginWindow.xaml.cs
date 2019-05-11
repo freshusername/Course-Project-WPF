@@ -12,8 +12,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
 
-using DemoMain.ViewModels;
-using DemoMain.Models;
+using DemoMain.Model;
 using DemoMain.DbGetData_Singleton;
 
 namespace DemoMain
@@ -26,7 +25,7 @@ namespace DemoMain
     public partial class LoginWindow : Window
     {
 
-        private readonly LoginViewModel viewModel = new LoginViewModel();
+        //private readonly LoginViewModel viewModel = new LoginViewModel();
 
         public LoginWindow()
         { 
@@ -91,12 +90,13 @@ namespace DemoMain
                 if (txtConfirmPassword.Password == txtRegPassword.Password)
                 {
                     SingletonDb sig = SingletonDb.getInstance();
-                    if(sig.registerAccount(txtRegUsername.Text, txtEmail.Text, txtRegPassword.Password, (bool)chBxAdminCheckBox.IsChecked))
+                    if (sig.registerAccount(txtRegUsername.Text, txtEmail.Text, txtRegPassword.Password, (bool)chBxAdminCheckBox.IsChecked) == true)
                     {
                         RegisterPanel.Visibility = Visibility.Hidden;
                         LoginPanel.Visibility = Visibility.Visible;
                         txtNickname.Focus();
                     }
+                    else { MessageBox.Show("User not added!"); }
                                         
                 }
                 else if (txtConfirmPassword.Password != txtRegPassword.Password)

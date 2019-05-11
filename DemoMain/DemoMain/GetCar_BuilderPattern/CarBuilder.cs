@@ -4,6 +4,8 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using DemoMain.DbGetData_Singleton;
+using DemoMain.Model;
+
 
 namespace DemoMain.GetCar_BuilderPattern
 {

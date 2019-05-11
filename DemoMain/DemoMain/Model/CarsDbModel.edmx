@@ -7,8 +7,9 @@
       <Schema Namespace="Хранилище CarsDBModel" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
         <EntityType Name="Accounts">
           <Key>
-            <PropertyRef Name="Login" />
+            <PropertyRef Name="Id" />
           </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="Login" Type="nchar" MaxLength="20" Nullable="false" />
           <Property Name="Email" Type="nchar" MaxLength="40" Nullable="false" />
           <Property Name="Password" Type="nchar" MaxLength="20" Nullable="false" />
@@ -80,8 +81,9 @@
       <Schema Namespace="CarsDBModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
         <EntityType Name="Accounts">
           <Key>
-            <PropertyRef Name="Login" />
+            <PropertyRef Name="Id" />
           </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="Login" Type="String" MaxLength="20" FixedLength="true" Unicode="true" Nullable="false" />
           <Property Name="Email" Type="String" MaxLength="40" FixedLength="true" Unicode="true" Nullable="false" />
           <Property Name="Password" Type="String" MaxLength="20" FixedLength="true" Unicode="true" Nullable="false" />
@@ -157,6 +159,7 @@
           <EntitySetMapping Name="Accounts">
             <EntityTypeMapping TypeName="CarsDBModel.Accounts">
               <MappingFragment StoreEntitySet="Accounts">
+                <ScalarProperty Name="Id" ColumnName="Id" />
                 <ScalarProperty Name="Login" ColumnName="Login" />
                 <ScalarProperty Name="Email" ColumnName="Email" />
                 <ScalarProperty Name="Password" ColumnName="Password" />

@@ -5,6 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows;
 using DemoMain.View;
+using DemoMain.Model;
 
 namespace DemoMain.DbGetData_Singleton
 {
@@ -134,6 +135,18 @@ namespace DemoMain.DbGetData_Singleton
                 .Where(acc => acc.Login == login)
                 .FirstOrDefault();
 
+            var test1 = context.Accounts
+                .Where(ac => ac.Login != null)
+                .Select(ac => ac.Login)
+                .FirstOrDefault()
+                .ToString();
+            List<string> logins = new List<string>();
+            foreach (var item in test1)
+            {
+                logins.Add(item.ToString());
+            }
+
+            MessageBox.Show(logins.ToString());
 
             if (test == null)
             {
@@ -145,6 +158,7 @@ namespace DemoMain.DbGetData_Singleton
 
                 context.Accounts.Add(AccToAdd);
                 context.SaveChanges();
+                MessageBox.Show(logins.ToString());
                 return true;
             }
             else {  MessageBox.Show(test.ToString()); return false; }

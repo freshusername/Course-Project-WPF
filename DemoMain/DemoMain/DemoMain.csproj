@@ -87,41 +87,40 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
-    <Compile Include="Accounts.cs">
+    <Compile Include="DbGetData_Singleton\SingletonDb.cs" />
+    <Compile Include="GetCar_BuilderPattern\CarBuilder.cs" />
+    <Compile Include="GetCar_BuilderPattern\IVehicleBuilder.cs" />
+    <Compile Include="Model\Accounts.cs">
       <DependentUpon>CarsDbModel.tt</DependentUpon>
     </Compile>
-    <Compile Include="CarManufacturer.cs">
+    <Compile Include="Model\CarManufacturer.cs">
       <DependentUpon>CarsDbModel.tt</DependentUpon>
     </Compile>
-    <Compile Include="Cars.cs">
+    <Compile Include="Model\Cars.cs">
       <DependentUpon>CarsDbModel.tt</DependentUpon>
     </Compile>
-    <Compile Include="CarsDbModel.Context.cs">
+    <Compile Include="Model\CarsDbModel.Context.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>CarsDbModel.Context.tt</DependentUpon>
     </Compile>
-    <Compile Include="CarsDbModel.cs">
+    <Compile Include="Model\CarsDbModel.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>CarsDbModel.tt</DependentUpon>
     </Compile>
-    <Compile Include="CarsDbModel.Designer.cs">
+    <Compile Include="Model\CarsDbModel.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>CarsDbModel.edmx</DependentUpon>
     </Compile>
-    <Compile Include="DbGetData_Singleton\SingletonDb.cs" />
-    <Compile Include="GetCar_BuilderPattern\CarBuilder.cs" />
-    <Compile Include="GetCar_BuilderPattern\IVehicleBuilder.cs" />
-    <Compile Include="Offers.cs">
+    <Compile Include="Model\Offers.cs">
       <DependentUpon>CarsDbModel.tt</DependentUpon>
     </Compile>
     <Compile Include="View\ChangesPage_MVVM\ViewModel\AccountsViewModel.cs" />
     <Compile Include="View\ChagesPage.xaml.cs">
       <DependentUpon>ChagesPage.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Models\Car.cs" />
     <Compile Include="View\CallUsPage.xaml.cs">
       <DependentUpon>CallUsPage.xaml</DependentUpon>
     </Compile>
@@ -136,13 +135,9 @@
     <Compile Include="LoginWindow.xaml.cs">
       <DependentUpon>LoginWindow.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Models\Offer.cs" />
-    <Compile Include="Models\User.cs" />
     <Compile Include="View\VehiclesPage.xaml.cs">
       <DependentUpon>VehiclesPage.xaml</DependentUpon>
     </Compile>
-    <Compile Include="ViewModels\AppViewModel.cs" />
-    <Compile Include="ViewModels\LoginViewModel.cs" />
     <Page Include="View\ChagesPage.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -198,11 +193,11 @@
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
-    <EntityDeploy Include="CarsDbModel.edmx">
+    <EntityDeploy Include="Model\CarsDbModel.edmx">
       <Generator>EntityModelCodeGenerator</Generator>
       <LastGenOutput>CarsDbModel.Designer.cs</LastGenOutput>
     </EntityDeploy>
-    <None Include="CarsDbModel.edmx.diagram">
+    <None Include="Model\CarsDbModel.edmx.diagram">
       <DependentUpon>CarsDbModel.edmx</DependentUpon>
     </None>
     <None Include="packages.config" />
@@ -216,6 +211,7 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Commands\" />
+    <Folder Include="View\ChangesPage_MVVM\Model\" />
     <Folder Include="View\ChangesPage_MVVM\View\" />
   </ItemGroup>
   <ItemGroup>
@@ -225,22 +221,22 @@
     <Content Include="CarsDB.mdf">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
-    <Content Include="CarsDbModel.Context.tt">
-      <Generator>TextTemplatingFileGenerator</Generator>
-      <DependentUpon>CarsDbModel.edmx</DependentUpon>
-      <LastGenOutput>CarsDbModel.Context.cs</LastGenOutput>
-    </Content>
-    <Content Include="CarsDbModel.tt">
-      <Generator>TextTemplatingFileGenerator</Generator>
-      <DependentUpon>CarsDbModel.edmx</DependentUpon>
-      <LastGenOutput>CarsDbModel.cs</LastGenOutput>
-    </Content>
     <Content Include="CarsDB_log.ldf">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
       <DependentUpon>CarsDB.mdf</DependentUpon>
     </Content>
     <Content Include="Database\TablesDataUsers.sql" />
     <Content Include="Database\TablesDataCars.sql" />
+    <Content Include="Model\CarsDbModel.Context.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>CarsDbModel.edmx</DependentUpon>
+      <LastGenOutput>CarsDbModel.Context.cs</LastGenOutput>
+    </Content>
+    <Content Include="Model\CarsDbModel.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>CarsDbModel.edmx</DependentUpon>
+      <LastGenOutput>CarsDbModel.cs</LastGenOutput>
+    </Content>
     <Resource Include="Images\Eye.png" />
     <Resource Include="Images\newUser.png" />
     <Resource Include="Images\logos\audi.jpg" />
