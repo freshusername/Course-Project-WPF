@@ -56,11 +56,11 @@
     <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
       <HintPath>..\packages\EntityFramework.6.2.0\lib\net45\EntityFramework.SqlServer.dll</HintPath>
     </Reference>
-    <Reference Include="MaterialDesignColors, Version=1.1.3.0, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\packages\MaterialDesignColors.1.1.3\lib\net45\MaterialDesignColors.dll</HintPath>
+    <Reference Include="MaterialDesignColors, Version=1.2.0.325, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\MaterialDesignColors.1.2.0\lib\net45\MaterialDesignColors.dll</HintPath>
     </Reference>
-    <Reference Include="MaterialDesignThemes.Wpf, Version=2.5.1.1345, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\packages\MaterialDesignThemes.2.5.1\lib\net45\MaterialDesignThemes.Wpf.dll</HintPath>
+    <Reference Include="MaterialDesignThemes.Wpf, Version=2.6.0.325, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\MaterialDesignThemes.2.6.0\lib\net45\MaterialDesignThemes.Wpf.dll</HintPath>
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.ComponentModel.DataAnnotations" />
@@ -87,7 +87,15 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="admins.cs" />
+    <Compile Include="bans.cs" />
+    <Compile Include="CarDealershipModel.cs" />
+    <Compile Include="CarDiscounts.cs" />
+    <Compile Include="CarManufs.cs" />
+    <Compile Include="Cars.cs" />
+    <Compile Include="CarsComments.cs" />
     <Compile Include="DbGetData_Singleton\SingletonDb.cs" />
+    <Compile Include="Engines.cs" />
     <Compile Include="GetCar_BuilderPattern\CarBuilder.cs" />
     <Compile Include="GetCar_BuilderPattern\IVehicleBuilder.cs" />
     <Compile Include="Model\Accounts.cs">
@@ -117,6 +125,8 @@
     <Compile Include="Model\Offers.cs">
       <DependentUpon>CarsDbModel.tt</DependentUpon>
     </Compile>
+    <Compile Include="Transmissions.cs" />
+    <Compile Include="Users.cs" />
     <Compile Include="View\ChangesPage_MVVM\ViewModel\AccountsViewModel.cs" />
     <Compile Include="View\ChagesPage.xaml.cs">
       <DependentUpon>ChagesPage.xaml</DependentUpon>
@@ -218,13 +228,6 @@
     <Resource Include="Images\vw-arteon-359-235.jpg" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="CarsDB.mdf">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
-    <Content Include="CarsDB_log.ldf">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-      <DependentUpon>CarsDB.mdf</DependentUpon>
-    </Content>
     <Content Include="Database\TablesDataUsers.sql" />
     <Content Include="Database\TablesDataCars.sql" />
     <Content Include="Model\CarsDbModel.Context.tt">
